@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +12,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(RoleSeeder::class);
+        User::factory()->count(25)->create();
+        $this->call(TripSeeder::class);
+        $this->call(PackageSeeder::class);
+        $this->call(RatingSeeder::class);
+        $this->call(ContactSeeder::class);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+
+
+        User::create([
+            'name' => 'Super User',
+            'email' => 'admin@trip.com',
+            'password' => bcrypt('password'),
+            'role_id' => 2
+        ]);
     }
 }
