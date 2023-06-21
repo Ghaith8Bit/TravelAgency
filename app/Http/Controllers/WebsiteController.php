@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Package;
+use App\Models\Trip;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
     public function home(Request $request)
     {
-        return view('website.pages.home');
+        $trips = Trip::getLastThreeTrips();
+        $packages = Package::getLastThreePackages();
+        return view('website.pages.home', ['trips' => $trips, 'packages' => $packages]);
     }
     public function about()
     {

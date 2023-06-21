@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Trip;
 use Illuminate\Http\Request;
 
 class TripController extends Controller
 {
     public function index()
     {
-        return view('website.pages.trips.index');
+        $trips = Trip::all();
+        return view('website.pages.trips.index', ['trips' => $trips]);
+    }
+
+    public function show(Trip $trip)
+    {
+        return view('website.pages.trips.show', ['trip' => $trip]);
     }
 }

@@ -12,6 +12,8 @@
                 class="nav-item nav-link {{ Route::is('website.home') ? 'active' : '' }}">Home</a>
             <a href="{{ route('website.trips.index') }}"
                 class="nav-item nav-link {{ Route::is('website.trips.index') ? 'active' : '' }}">Trips</a>
+            <a href="{{ route('website.packages.index') }}"
+                class="nav-item nav-link {{ Route::is('website.packages.index') ? 'active' : '' }}">Packages</a>
             <a href="{{ route('website.about') }}"
                 class="nav-item nav-link {{ Route::is('website.about') ? 'active' : '' }}">About</a>
             <a href="{{ route('website.blogs.index') }}"

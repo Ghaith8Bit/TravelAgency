@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
@@ -43,5 +44,9 @@ Route::prefix('website')->name('website.')->group(function () {
     Route::prefix('trips')->name('trips.')->group(function () {
         Route::get('/', [TripController::class, 'index'])->name('index');
         Route::get('/{trip}', [TripController::class, 'show'])->name('show');
+    });
+    Route::prefix('packages')->name('packages.')->group(function () {
+        Route::get('/', [PackageController::class, 'index'])->name('index');
+        Route::get('/{package}', [PackageController::class, 'show'])->name('show');
     });
 });

@@ -28,74 +28,29 @@
         <div class="products">
             <div class="container">
                 <div class="row card-deck">
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <img src="{{ asset('dist/image/Damascus.jpg') }}" class="card-img-top" alt="Product 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Trip Name</h5>
-                                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Inventore ad unde maxime sed quaerat harum recusandae beatae. Minus, totam.
-                                    Fugit, ratione aliquid reiciendis autem fuga suscipit similique ad quo animi
-                                    est? Omnis facere, quibusdam ipsa consequatur animi molestiae, officiis
-                                    reiciendis sint vel at veritatis, voluptate natus id nihil laudantium expedita.
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a href="details.html" class="btn btn-outline-success">View Details</a>
+                    @foreach ($trips as $trip)
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <img src="{{ asset('dist/image/Damascus.jpg') }}" class="card-img-top" alt="Product 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $trip->name }}</h5>
+                                    <p class="card-text">{{ $trip->description }}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="{{ route('website.trips.show', ['trip' => $trip]) }}"
+                                                class="btn btn-outline-success">View Details</a>
+                                        </div>
+                                        <span class="price">{{ $trip->price }}</span>
                                     </div>
-                                    <span class="price">75000 S.p</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <img src="{{ asset('dist/image/aleppo.jpg') }}" class="card-img-top" alt="Product 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Trip Name</h5>
-                                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Inventore ad unde maxime sed quaerat harum recusandae beatae. Minus, totam.
-                                    Fugit, ratione aliquid reiciendis autem fuga suscipit similique ad quo animi
-                                    est? Omnis facere, quibusdam ipsa consequatur animi molestiae, officiis
-                                    reiciendis sint vel at veritatis, voluptate natus id nihil laudantium expedita.
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a href="details.html" class="btn btn-outline-success">View Details</a>
-                                    </div>
-                                    <span class="price">85000 S.p</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <img src="{{ asset('dist/image/latakia.jpg') }}" class="card-img-top" alt="Product 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Trip Name</h5>
-                                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Inventore ad unde maxime sed quaerat harum recusandae beatae. Minus, totam.
-                                    Fugit, ratione aliquid reiciendis autem fuga suscipit similique ad quo animi
-                                    est? Omnis facere, quibusdam ipsa consequatur animi molestiae, officiis
-                                    reiciendis sint vel at veritatis, voluptate natus id nihil laudantium expedita.
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a href="details.html" class="btn btn-outline-success">View Details</a>
-                                    </div>
-                                    <span class="price">95000 S.p</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- end card body -->
-
-    <!-- Service Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -147,10 +102,7 @@
             </div>
         </div>
     </div>
-    <!-- Service End -->
 
-
-    <!-- Package Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -158,180 +110,46 @@
                 <h1 class="mb-5">Awesome Packages</h1>
             </div>
             <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="package-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('dist/image/Damascus.jpg') }}" alt="">
-                        </div>
-                        <div class="d-flex border-bottom">
-                            <small class="flex-fill text-center border-end py-2"><i
-                                    class="fa fa-map-marker-alt text-primary me-2"></i>Damascus</small>
-                            <small class="flex-fill text-center border-end py-2"><i
-                                    class="fa fa-calendar-alt text-primary me-2"></i>3 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2
-                                Person</small>
-                        </div>
-                        <div class="text-center p-4">
-                            <h3 class="mb-0">85000 S.p</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
+                @foreach ($packages as $package)
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="package-item">
+                            <div class="overflow-hidden">
+                                <img class="img-fluid" src="{{ asset('dist/image/Damascus.jpg') }}" alt="">
                             </div>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end"
-                                    style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3"
-                                    style="border-radius: 0 30px 30px 0;">Book Now</a>
+                            <div class="d-flex border-bottom">
+                                <small class="flex-fill text-center border-end py-2"><i
+                                        class="fa fa-map-marker-alt text-primary me-2"></i>{{ Str::limit($package->trip->name, 22, '...') }}</small>
+                                <small class="flex-fill text-center border-end py-2"><i
+                                        class="fa fa-calendar-alt text-primary me-2"></i>3 days</small>
+                                <small class="flex-fill text-center py-2"><i
+                                        class="fa fa-user text-primary me-2"></i>{{ $package->people_count }}
+                                    Person</small>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="package-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('dist/image/Tartus.jpg') }}" alt="">
-                        </div>
-                        <div class="d-flex border-bottom">
-                            <small class="flex-fill text-center border-end py-2"><i
-                                    class="fa fa-map-marker-alt text-primary me-2"></i>Tartus</small>
-                            <small class="flex-fill text-center border-end py-2"><i
-                                    class="fa fa-calendar-alt text-primary me-2"></i>3 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2
-                                Person</small>
-                        </div>
-                        <div class="text-center p-4">
-                            <h3 class="mb-0">85000 S.p</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end"
-                                    style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3"
-                                    style="border-radius: 0 30px 30px 0;">Book Now</a>
+                            <div class="text-center p-4">
+                                <h3 class="mb-0">{{ $package->price }}</h3>
+                                <div class="mb-3">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                                <p>{{ $package->trip->description }}</p>
+                                <div class="d-flex justify-content-center mb-2">
+                                    <a href="{{ route('website.packages.show', ['package' => $package]) }}"
+                                        class="btn btn-sm btn-primary px-3 border-end"
+                                        style="border-radius: 30px 0 0 30px;">Read More</a>
+                                    <a href="#" class="btn btn-sm btn-primary px-3"
+                                        style="border-radius: 0 30px 30px 0;">Book Now</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="package-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('dist/image/latakia.jpg') }}" alt="">
-                        </div>
-                        <div class="d-flex border-bottom">
-                            <small class="flex-fill text-center border-end py-2"><i
-                                    class="fa fa-map-marker-alt text-primary me-2"></i>Latakiia</small>
-                            <small class="flex-fill text-center border-end py-2"><i
-                                    class="fa fa-calendar-alt text-primary me-2"></i>3 days</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2
-                                Person</small>
-                        </div>
-                        <div class="text-center p-4">
-                            <h3 class="mb-0">85000 S.p</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end"
-                                    style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3"
-                                    style="border-radius: 0 30px 30px 0;">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
-    <!-- Package End -->
 
-
-    <!-- Booking Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="booking p-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-md-6 text-white">
-                        <h6 class="text-white text-uppercase">Booking</h6>
-                        <h1 class="text-white mb-4">Online Booking</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
-                            amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
-                            amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo
-                            magna dolore erat amet</p>
-                        <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a>
-                    </div>
-                    <div class="col-md-6">
-                        <h1 class="text-white mb-4">Book Now</h1>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent" id="name"
-                                            placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control bg-transparent" id="email"
-                                            placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent datetimepicker-input"
-                                            id="datetime" placeholder="Date & Time" data-target="#date3"
-                                            data-toggle="datetimepicker" />
-                                        <label for="datetime">Date & Time</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <select class="form-select bg-transparent" id="select1">
-                                            <option value="1">Destination 1</option>
-                                            <option value="2">Destination 2</option>
-                                            <option value="3">Destination 3</option>
-                                        </select>
-                                        <label for="select1">Destination</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Special Request</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book
-                                        Now</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Booking Start -->
-
-
-    <!-- Process Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -381,5 +199,4 @@
             </div>
         </div>
     </div>
-    <!-- Process Start -->
 @endsection
