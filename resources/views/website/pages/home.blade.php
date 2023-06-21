@@ -128,13 +128,6 @@
                             </div>
                             <div class="text-center p-4">
                                 <h3 class="mb-0">{{ $package->price }}</h3>
-                                <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                </div>
                                 <p>{{ $package->trip->description }}</p>
                                 <div class="d-flex justify-content-center mb-2">
                                     <a href="{{ route('website.packages.show', ['package' => $package]) }}"

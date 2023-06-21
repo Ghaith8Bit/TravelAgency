@@ -44,13 +44,6 @@
                                         <a class="btn btn-sm btn-primary rounded py-2 px-4"
                                             href="{{ route('website.packages.show', ['package' => $package]) }}">View
                                             Detail</a>
-                                        <div class="ps-2">
-                                            <small class="fa fa-star text-primary"></small>
-                                            <small class="fa fa-star text-primary"></small>
-                                            <small class="fa fa-star text-primary"></small>
-                                            <small class="fa fa-star text-primary"></small>
-                                            <small class="fa fa-star text-primary"></small>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -9,7 +9,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $ratings = Rating::all();
+        $ratings = Rating::getRatingWithTripAndUser();
         return view('website.pages.blogs.index', ['ratings' => $ratings]);
     }
 }

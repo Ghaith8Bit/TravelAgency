@@ -115,4 +115,9 @@ class Trip extends Model
         return $duration;
     }
 
+    // Get rating of trip
+    public function averageRating()
+    {
+        return ceil($this->ratings()->avg('rating'));
+    }
 }

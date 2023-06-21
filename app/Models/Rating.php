@@ -27,7 +27,7 @@ class Rating extends Model
 
     public static function getRatingWithTripAndUser()
     {
-        return self::with('trip', 'user')->where('show_on_blog', true)->get();
+        return self::where('show_on_blog', true)->get();
     }
 
 

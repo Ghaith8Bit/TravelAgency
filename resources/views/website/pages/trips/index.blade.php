@@ -37,19 +37,11 @@
                                 <div class="p-4 mt-2">
                                     <div class="d-flex justify-content-between mb-3">
                                         <h5 class="mb-0">{{ $trip->name }}</h5>
-
                                     </div>
                                     <p class="text-body mb-3">{{ $trip->description }}</p>
                                     <div class="d-flex justify-content-between">
                                         <a class="btn btn-sm btn-primary rounded py-2 px-4"
                                             href="{{ route('website.trips.show', ['trip' => $trip]) }}">View Detail</a>
-                                        <div class="ps-2">
-                                            <small class="fa fa-star text-primary"></small>
-                                            <small class="fa fa-star text-primary"></small>
-                                            <small class="fa fa-star text-primary"></small>
-                                            <small class="fa fa-star text-primary"></small>
-                                            <small class="fa fa-star text-primary"></small>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
