@@ -20,13 +20,19 @@
                 class="nav-item nav-link {{ Route::is('website.contact') ? 'active' : '' }}">Contact</a>
             <a href="{{ route('website.gallery') }}"
                 class="nav-item nav-link {{ Route::is('website.gallery') ? 'active' : '' }} ">Gallery</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Register</a>
-                <div class="dropdown-menu m-0">
-                    <a href="{{ route('auth.authentication') }}" class="dropdown-item">Login</a>
-                    <a href="{{ route('auth.authentication') }}#sign-up-btn" class="dropdown-item">Register</a>
+            @guest
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Register</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{{ route('auth.authentication') }}" class="dropdown-item">Login</a>
+                        <a href="{{ route('auth.authentication') }}#sign-up-btn" class="dropdown-item">Register</a>
+                    </div>
                 </div>
-            </div>
+            @endguest
+            @auth
+                <a href="{{ route('dashboard.home') }}"
+                    class="nav-item nav-link {{ Route::is('dashboard.home') ? 'active' : '' }} ">Dashboard</a>
+            @endauth
         </div>
     </div>
 </nav>

@@ -1,6 +1,7 @@
 @extends('auth.layouts.master')
 
 @section('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
@@ -395,4 +396,14 @@
             container.classList.remove("sign-up-mode2");
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    @if (session('toastify'))
+        <script>
+            Toastify({
+                text: '{{ session('toastify.text') }}',
+                className: '{{ session('toastify.className') }}',
+                duration: 2000,
+            }).showToast();
+        </script>
+    @endif
 @endsection

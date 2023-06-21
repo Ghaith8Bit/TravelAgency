@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <a href="{{ redirect()->back()->getTargetUrl() }}"><button class="btn" id="go-back-btn"
+    <a href="{{ route('website.home') }}"><button class="btn" id="go-back-btn"
             style="width: 50px;margin:10px;position: absolute;left: 0;top: 0;"><i
                 class="fas fa-arrow-left"></i></button></a>
     <!-- Main content area -->
