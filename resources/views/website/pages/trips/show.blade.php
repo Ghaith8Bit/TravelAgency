@@ -26,8 +26,10 @@
                         <p class="mb-4">Whether you're seeking a relaxing getaway or an adventurous journey, our team is
                             here to assist you in planning the perfect trip. With our carefully curated selection of
                             packages, you can find the ideal travel experience tailored to your preferences.</p>
-                        <p class="mb-2">Start Date: <span class="text-white">{{ $trip->start_date }}</span></p>
-                        <p class="mb-2">End Date: <span class="text-white">{{ $trip->end_date }}</span></p>
+                        <p class="mb-2">Start Date: <span
+                                class="text-white">{{ $trip->start_date->format('Y-m-d') }}</span></p>
+                        <p class="mb-2">End Date: <span class="text-white">{{ $trip->end_date->format('Y-m-d') }}</span>
+                        </p>
                         <p class="mb-2">Price: <span class="text-white">{{ $trip->price }}</span></p>
                     </div>
                     <div class="col-md-6">

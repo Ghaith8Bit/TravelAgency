@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +15,11 @@ class Trip extends Model
         'price',
         'start_date',
         'end_date'
+    ];
+
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
     ];
 
     public function packages()
@@ -55,4 +61,58 @@ class Trip extends Model
     {
         return self::orderBy('created_at', 'desc')->limit(3)->get();
     }
+
+    // Get the upcoming trips
+    public static function getUpcomingTrips()
+    {
+        return self::where('start_date', '>', now())->get();
+    }
+
+
+    // Create trip
+    public static function addNewTrip($data)
+    {
+        // Check if the user is an admin
+        if (!auth()->user()->isAdmin()) {
+            return false;
+        }
+
+        // Cast start_date and end_date to Carbon instances
+        $data['start_date'] = Carbon::parse($data['start_date']);
+        $data['end_date'] = Carbon::parse($data['end_date']);
+
+        // Check if the start date is not in the past
+        if ($data['start_date']->isPast()) {
+            return false;
+        }
+
+        // Check if the end date is not before the start date
+        if ($data['end_date']->isBefore($data['start_date'])) {
+            return false;
+        }
+
+        // Create the new trip
+        Trip::create([
+            'name' => $data['name'],
+            'description' => $data['description'],
+            'price' => $data['price'],
+            'start_date' => $data['start_date'],
+            'end_date' => $data['end_date'],
+        ]);
+
+        return true;
+    }
+
+    // Get duration of the trip
+    public function getTripDurationInDays(): int
+    {
+        $startDate = $this->start_date;
+        $endDate = $this->end_date;
+
+        // Calculate the duration in days
+        $duration = $startDate->diff($endDate)->days;
+
+        return $duration;
+    }
+
 }

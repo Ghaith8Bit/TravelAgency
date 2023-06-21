@@ -9,7 +9,7 @@ class TripController extends Controller
 {
     public function index()
     {
-        $trips = Trip::all();
+        $trips = Trip::getUpcomingTrips();
         return view('website.pages.trips.index', ['trips' => $trips]);
     }
 

@@ -16,12 +16,16 @@ class TripFactory extends Factory
      */
     public function definition(): array
     {
+        $endDate = $this->faker->dateTimeBetween('now', '+1 year');
+        $startDate = $this->faker->dateTimeBetween('-1 year', $endDate);
+
         return [
             'name' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
             'price' => $this->faker->randomFloat(2, 100, 1000),
-            'start_date' => $this->faker->date(),
-            'end_date' => $this->faker->date(),
+            'start_date' => $startDate,
+            'end_date' => $endDate,
         ];
     }
+
 }

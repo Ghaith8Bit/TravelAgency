@@ -120,7 +120,8 @@
                                 <small class="flex-fill text-center border-end py-2"><i
                                         class="fa fa-map-marker-alt text-primary me-2"></i>{{ Str::limit($package->trip->name, 22, '...') }}</small>
                                 <small class="flex-fill text-center border-end py-2"><i
-                                        class="fa fa-calendar-alt text-primary me-2"></i>3 days</small>
+                                        class="fa fa-calendar-alt text-primary me-2"></i>{{ $package->trip->getTripDurationInDays() . ' ' }}{{ $package->trip->getTripDurationInDays() == 1 ? 'day' : 'days' }}
+                                </small>
                                 <small class="flex-fill text-center py-2"><i
                                         class="fa fa-user text-primary me-2"></i>{{ $package->people_count }}
                                     Person</small>
