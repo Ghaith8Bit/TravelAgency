@@ -23,8 +23,8 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Register</a>
                 <div class="dropdown-menu m-0">
-                    <a href="login.html" class="dropdown-item">Login</a>
-                    <a href="signup.html" class="dropdown-item">Signup</a>
+                    <a href="{{ route('auth.authentication') }}" class="dropdown-item">Login</a>
+                    <a href="{{ route('auth.authentication') }}#sign-up-btn" class="dropdown-item">Register</a>
                 </div>
             </div>
         </div>
