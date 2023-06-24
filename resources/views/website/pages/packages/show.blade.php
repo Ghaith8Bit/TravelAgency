@@ -38,15 +38,15 @@
                         <form action="#" method="POST">
                             <div class="row g-3">
                                 <div class="col-12">
-                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book
-                                        {{ $package->people_count }} package Now</button>
+                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book package for
+                                        {{ $package->people_count }} Now</button>
                                 </div>
                             </div>
                         </form>
                         <br>
                         <div class="row g-3">
                             <div class="col-12">
-                                <a href="#"><button class="btn btn-outline-light w-100 py-3" type="submit">Book Trip
+                                <a href="#"><button class="btn btn-outline-light w-100 py-3" type="submit">Book Trip for 1 Person
                                         Now</button></a>
                             </div>
                         </div>

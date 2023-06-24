@@ -123,8 +123,7 @@
                                         class="fa fa-calendar-alt text-primary me-2"></i>{{ $package->trip->getTripDurationInDays() . ' ' }}{{ $package->trip->getTripDurationInDays() == 1 ? 'day' : 'days' }}
                                 </small>
                                 <small class="flex-fill text-center py-2"><i
-                                        class="fa fa-user text-primary me-2"></i>{{ $package->people_count }}
-                                    Person</small>
+                                        class="fa fa-user text-primary me-2"></i>{{ $package->people_count }}</small>
                             </div>
                             <div class="text-center p-4">
                                 <h3 class="mb-0">{{ $package->price }}</h3>

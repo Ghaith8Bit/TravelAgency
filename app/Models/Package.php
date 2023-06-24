@@ -25,4 +25,15 @@ class Package extends Model
     {
         return self::orderBy('created_at', 'desc')->limit(3)->get();
     }
+
+    // accessor to get the price
+    public function getPriceAttribute($value)
+    {
+        return $value . ' SP';
+    }
+    // accessor to get the people count
+    public function getPeopleCountAttribute($value)
+    {
+        return $value == 1 ? $value . ' person' : $value . ' people';
+    }
 }
