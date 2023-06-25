@@ -29,27 +29,29 @@
                         <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                             <div class="border rounded p-1">
                                 <div class="border rounded text-center p-4">
-                                    <i class="fas fa-mountain facts-icon text-primary mb-2"></i>
-                                    <h2 class="mb-1" data-toggle="counter-up">1234</h2>
-                                    <p class="mb-0">Mountains climbed</p>
+                                    <i class="fas fa-suitcase facts-icon text-primary mb-2"></i>
+
+                                    <h2 class="mb-1" data-toggle="counter-up">{{ $tripCount }}</h2>
+                                    <p class="mb-0">Total Trips</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-4 wow fadeIn" data-wow-delay="0.3s">
                             <div class="border rounded p-1">
                                 <div class="border rounded text-center p-4">
-                                    <i class="fas fa-umbrella-beach facts-icon text-primary mb-2"></i>
-                                    <h2 class="mb-1" data-toggle="counter-up">1234</h2>
-                                    <p class="mb-0">beaches visite</p>
+                                    <i class="fas fa-box facts-icon text-primary mb-2"></i>
+                                    <h2 class="mb-1" data-toggle="counter-up">{{ $packageCount }}</h2>
+                                    <p class="mb-0">Total Packages</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
                             <div class="border rounded p-1">
                                 <div class="border rounded text-center p-4">
-                                    <i class="fas fa-camera-retro facts-icon text-primary mb-2"></i>
+                                    <i class="fas fa-calendar-check facts-icon text-primary mb-2"></i>
+
                                     <h2 class="mb-1" data-toggle="counter-up">1234</h2>
-                                    <p class="mb-0">Photos taken</p>
+                                    <p class="mb-0">Total Reservations</p>
                                 </div>
                             </div>
                         </div>

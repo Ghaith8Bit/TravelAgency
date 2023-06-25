@@ -159,8 +159,9 @@
                         <h5 class="mt-4">Choose A Destination</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos
-                            erat ipsum et lorem et sit sed stet lorem sit</p>
+                        <p class="mb-0">Explore our diverse range of destinations and choose your dream location. From
+                            exotic beach getaways to bustling city adventures, we offer an array of options to suit your
+                            travel preferences.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -172,8 +173,8 @@
                         <h5 class="mt-4">Pay Online</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos
-                            erat ipsum et lorem et sit sed stet lorem sit</p>
+                        <p class="mb-0">Securely complete your payment online to confirm your travel booking. We offer
+                            convenient and safe payment options, ensuring a hassle-free experience for our customers.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.5s">
@@ -185,8 +186,9 @@
                         <h5 class="mt-4">Fly Today</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos
-                            erat ipsum et lorem et sit sed stet lorem sit</p>
+                        <p class="mb-0">Pack your bags and get ready for an amazing journey. Once your booking is
+                            confirmed, you can embark on your adventure and fly to your chosen destination today. Let us
+                            take care of the rest!</p>
                     </div>
                 </div>
             </div>

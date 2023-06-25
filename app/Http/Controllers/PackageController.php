@@ -18,4 +18,5 @@ class PackageController extends Controller
     {
         return view('website.pages.packages.show', ['package' => $package]);
     }
+
 }

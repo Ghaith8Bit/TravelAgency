@@ -121,9 +121,15 @@ class Trip extends Model
         return ceil($this->ratings()->avg('rating'));
     }
 
-    // accessor to get the price
+    // Accessor to get the price
     public function getPriceAttribute($value)
     {
         return $value . ' SP';
+    }
+
+    // Count of all trips
+    public static function countAllTrips()
+    {
+        return self::count();
     }
 }

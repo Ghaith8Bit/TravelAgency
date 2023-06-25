@@ -31,7 +31,7 @@
                                 <div class="position-relative">
                                     <img class="img-fluid" src="{{ asset('dist/image/blog-1.jpg') }}" alt="blog">
                                     <small
-                                        class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">{{ $package->trip->start_date->diffForHumans(null, true) }}
+                                        class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">{{ $package->trip->start_date->diffForHumans() }}
                                     </small>
                                 </div>
                                 <div class="p-4 mt-2">

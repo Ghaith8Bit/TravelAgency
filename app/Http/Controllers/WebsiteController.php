@@ -16,7 +16,9 @@ class WebsiteController extends Controller
     }
     public function about()
     {
-        return view('website.pages.about');
+        $tripCount = Trip::countAllTrips();
+        $packageCount = Package::countAllPackages();
+        return view('website.pages.about', ['tripCount' => $tripCount, 'packageCount' => $packageCount]);
     }
     public function contact()
     {
