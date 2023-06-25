@@ -42,4 +42,12 @@ class Package extends Model
     {
         return self::count();
     }
+
+    // Get the upcoming packages
+    public static function getUpcomingPackages()
+    {
+        return self::with('trip')->whereHas('trip', function ($query) {
+            $query->where('start_date', '>', now());
+        })->get();
+    }
 }
