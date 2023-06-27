@@ -20,6 +20,11 @@ class Package extends Model
         return $this->belongsTo(Trip::class);
     }
 
+    public function reservations()
+    {
+        return $this->morphMany(Reservation::class, 'reservationable');
+    }
+
     // Get the last three packages
     public static function getLastThreePackages()
     {

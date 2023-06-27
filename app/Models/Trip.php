@@ -32,6 +32,11 @@ class Trip extends Model
         return $this->hasMany(Rating::class);
     }
 
+    public function reservations()
+    {
+        return $this->morphMany(Reservation::class, 'reservationable');
+    }
+
     // Filter trips by price range
     public static function filterByPriceRange($minPrice, $maxPrice)
     {

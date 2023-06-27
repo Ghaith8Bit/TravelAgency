@@ -10,15 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('ratings', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->integer('rating');
-            $table->boolean('show_on_blog')->default(false);
-            $table->unsignedBigInteger('trip_id');
             $table->unsignedBigInteger('user_id');
+            $table->morphs('reservationable');
             $table->timestamps();
 
-            $table->foreign('trip_id')->references('id')->on('trips')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('ratings');
+        Schema::dropIfExists('reservations');
     }
 };

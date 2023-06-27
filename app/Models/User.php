@@ -44,16 +44,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function isAdmin()
-    {
-        return $this->role_id === 2;
-    }
-
-    public function isUser()
-    {
-        return $this->role_id === 1;
-    }
-
     public function role()
     {
         return $this->belongsTo(Role::class);
@@ -62,5 +52,20 @@ class User extends Authenticatable
     public function ratings()
     {
         return $this->hasMany(Rating::class);
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role_id === 2;
+    }
+
+    public function isUser()
+    {
+        return $this->role_id === 1;
     }
 }
