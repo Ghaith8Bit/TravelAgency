@@ -23,6 +23,13 @@
                     <h3 class="mb-5">Explore Our <span class="text-primary text-uppercase"><br>This is the page of all
                             Pacages we have</span></h3>
                     <br>
+                    <!-- Filter Button -->
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal"
+                            data-bs-target="#filterModal">
+                            Open Filter
+                        </button>
+                    </div>
                 </div>
                 <div class="row g-4">
                     @foreach ($packages as $package)
@@ -43,7 +50,7 @@
                                     <div class="d-flex justify-content-between">
                                         <a class="btn btn-sm btn-primary rounded py-2 px-4"
                                             href="{{ route('website.packages.show', ['package' => $package]) }}">View
-                                            Detail</a>
+                                            Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -53,4 +60,45 @@
             </div>
         </div>
     </section>
+
+    <!-- Filter Modal -->
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filterModalLabel">Filter Options</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ route('website.packages.index') }}" method="GET">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="filter-start-date" class="form-label">Start Date Range:</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" id="filter-start-date" placeholder="From"
+                                    name="start-date" value="{{ Request::get('start-date') }}">
+                                <input type="date" class="form-control" id="filter-end-date" placeholder="To"
+                                    name="end-date" value="{{ Request::get('end-date') }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="filter-price-min" class="form-label">Min Price:</label>
+                            <input type="number" class="form-control" id="filter-price-min"
+                                placeholder="Enter minimum price" name="price-min" value="{{ Request::get('price-min') }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="filter-price-max" class="form-label">Max Price:</label>
+                            <input type="number" class="form-control" id="filter-price-max"
+                                placeholder="Enter maximum price" name="price-max" value="{{ Request::get('price-max') }}">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="apply-filter-btn">Apply Filter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
