@@ -20,4 +20,9 @@ class Reservation extends Model
     {
         return $this->morphTo();
     }
+
+    public static function countAllReservations()
+    {
+        return self::count();
+    }
 }

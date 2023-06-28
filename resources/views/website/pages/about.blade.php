@@ -50,7 +50,7 @@
                                 <div class="border rounded text-center p-4">
                                     <i class="fas fa-calendar-check facts-icon text-primary mb-2"></i>
 
-                                    <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                    <h2 class="mb-1" data-toggle="counter-up">{{ $reservationCount }}</h2>
                                     <p class="mb-0">Total Reservations</p>
                                 </div>
                             </div>
