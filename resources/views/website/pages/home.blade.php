@@ -31,7 +31,7 @@
                     @foreach ($trips as $trip)
                         <div class="col-lg-4">
                             <div class="card">
-                                <img src="{{ asset('dist/image/Damascus.jpg') }}" class="card-img-top" alt="Product 1">
+                                <img src="{{ asset($trip->image) }}" class="card-img-top" alt="Product 1">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $trip->name }}</h5>
                                     <p class="card-text">{{ $trip->description }}</p>
@@ -114,7 +114,7 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="package-item">
                             <div class="overflow-hidden">
-                                <img class="img-fluid" src="{{ asset('dist/image/Damascus.jpg') }}" alt="">
+                                <img class="img-fluid" src="{{ asset($package->trip->image) }}" alt="">
                             </div>
                             <div class="d-flex border-bottom">
                                 <small class="flex-fill text-center border-end py-2"><i

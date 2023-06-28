@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->decimal('price', 8, 2);
             $table->date('start_date');
             $table->date('end_date');
+            $table->string('image')->default('storage/no_pic.jpg');
             $table->timestamps();
         });
     }
