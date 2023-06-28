@@ -43,7 +43,7 @@
                                     <p class="text-body mb-3">{{ $rating->trip->description }}</p>
                                     <div class="d-flex justify-content-between">
                                         <div class="ps-2">
-                                            @for ($i = 1; $i <= $rating->trip->averageRating(); $i++)
+                                            @for ($i = 1; $i <= $rating->rating; $i++)
                                                 <small class="fa fa-star text-primary"></small>
                                             @endfor
                                         </div>

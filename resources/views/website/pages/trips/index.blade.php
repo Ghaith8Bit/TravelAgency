@@ -50,6 +50,20 @@
                                     <div class="d-flex justify-content-between">
                                         <a class="btn btn-sm btn-primary rounded py-2 px-4"
                                             href="{{ route('website.trips.show', ['trip' => $trip]) }}">View Details</a>
+                                        <div>
+                                            @php
+                                                $averageRating = $trip->averageRating();
+                                            @endphp
+
+                                            @if ($averageRating > 0)
+                                                @for ($i = 1; $i <= $averageRating; $i++)
+                                                    <small class="fa fa-star text-primary"></small>
+                                                @endfor
+                                            @else
+                                                <small>No rating available</small>
+                                            @endif
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

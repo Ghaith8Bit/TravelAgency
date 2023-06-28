@@ -38,19 +38,32 @@
                                 <div class="position-relative">
                                     <img class="img-fluid" src="{{ asset($package->trip->image) }}" alt="blog">
                                     <small
-                                        class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">{{ $package->trip->start_date->diffForHumans() }}
+                                        class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">
+                                        {{ $package->trip->start_date->diffForHumans() }}
                                     </small>
                                 </div>
                                 <div class="p-4 mt-2">
                                     <div class="d-flex justify-content-between mb-3">
                                         <h5 class="mb-0">{{ $package->trip->name }}</h5>
-
                                     </div>
                                     <p class="text-body mb-3">{{ $package->trip->description }}</p>
                                     <div class="d-flex justify-content-between">
                                         <a class="btn btn-sm btn-primary rounded py-2 px-4"
                                             href="{{ route('website.packages.show', ['package' => $package]) }}">View
                                             Details</a>
+                                        <div>
+                                            @php
+                                                $averageRating = $package->trip->averageRating();
+                                            @endphp
+
+                                            @if ($averageRating > 0)
+                                                @for ($i = 1; $i <= $averageRating; $i++)
+                                                    <small class="fa fa-star text-primary"></small>
+                                                @endfor
+                                            @else
+                                                <small>No rating available</small>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
