@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\TripController;
@@ -55,6 +56,9 @@ Route::prefix('website')->name('website.')->group(function () {
     Route::prefix('packages')->name('packages.')->group(function () {
         Route::get('/', [PackageController::class, 'index'])->name('index');
         Route::get('/{package}', [PackageController::class, 'show'])->name('show');
+    });
+    Route::prefix('contact')->name('contact.')->group(function () {
+        Route::post('send', [ContactController::class, '__invoke'])->name('send');
     });
 });
 Route::get('/', [PackageController::class, 'index'])->name('dashboard.home');

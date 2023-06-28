@@ -21,7 +21,7 @@
   @if (session('toastify'))
       <script>
           Toastify({
-              text: '{{ session('toastify.text') }}',
+              text: '{!! session('toastify.text') !!}',
               className: '{{ session('toastify.className') }}',
               duration: 2000,
           }).showToast();

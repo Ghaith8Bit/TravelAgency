@@ -51,24 +51,30 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <form action="" class="form">
+                    <form action="{{ route('website.contact.send') }}" method="POST" class="form">
+                        @csrf
                         <div class="row">
                             <div class="col form-group">
-                                <input type="text" class="form-control" placeholder="First name">
+                                <input type="text" class="form-control" name="first_name" placeholder="First name"
+                                    value="{{ old('first_name') }}">
                             </div>
                             <div class="col form-group">
-                                <input type="text" class="form-control" placeholder="Last name">
+                                <input type="text" class="form-control" name="last_name" placeholder="Last name"
+                                    value="{{ old('last_name') }}">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your email">
+                                <input type="text" class="form-control" name="email" placeholder="Your email"
+                                    value="{{ old('email') }}">
                             </div>
                             <div class="form-group">
-                                <textarea name="" class="form-control" rows="5">message</textarea>
+                                <textarea name="message" class="form-control" rows="5" placeholder="Your Message">{{ old('message') }}</textarea>
                             </div>
-                            <div class="text-center"><button>Send</button>
+                            <div class="text-center">
+                                <button type="submit">Send</button>
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
