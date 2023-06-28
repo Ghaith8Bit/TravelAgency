@@ -14,6 +14,16 @@
   <script src="{{ asset('dist/lib/tempusdominus/js/moment.min.js') }}"></script>
   <script src="{{ asset('dist/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
   <script src="{{ asset('dist/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-
-  <!-- Template Javascript -->
   <script src="{{ asset('dist/js/main.js') }}"></script>
+
+  <!-- Toastify Javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  @if (session('toastify'))
+      <script>
+          Toastify({
+              text: '{{ session('toastify.text') }}',
+              className: '{{ session('toastify.className') }}',
+              duration: 2000,
+          }).showToast();
+      </script>
+  @endif

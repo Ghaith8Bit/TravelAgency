@@ -35,7 +35,9 @@
                     </div>
                     <div class="col-md-6">
                         <h1 class="text-white mb-4">Book Package Now</h1>
-                        <form action="#" method="POST">
+                        <form action="{{ route('website.reservations.store.package', ['package' => $package]) }}"
+                            method="POST">
+                            @csrf
                             <div class="row g-3">
                                 <div class="col-12">
                                     <button class="btn btn-outline-light w-100 py-3" type="submit">Book package for
@@ -44,12 +46,16 @@
                             </div>
                         </form>
                         <br>
-                        <div class="row g-3">
-                            <div class="col-12">
-                                <a href="#"><button class="btn btn-outline-light w-100 py-3" type="submit">Book Trip for 1 Person
-                                        Now</button></a>
+                        <form action="{{ route('website.reservations.store.trip', ['trip' => $package->trip]) }}"
+                            method="POST">
+                            @csrf
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book Trip for 1 Person
+                                        Now</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

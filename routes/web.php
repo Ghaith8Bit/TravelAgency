@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,12 @@ Route::prefix('website')->name('website.')->group(function () {
         Route::get('/', [BlogController::class, 'index'])->name('index');
         Route::get('/{blog}', [BlogController::class, 'show'])->name('show');
     });
+    Route::prefix('reservations')->name('reservations.')->middleware('auth')->group(function () {
+        Route::prefix('store')->name('store.')->group(function () {
+            Route::post('trip/{trip}', [ReservationController::class, 'storeTrip'])->name('trip');
+            Route::post('package/{package}', [ReservationController::class, 'storePackage'])->name('package');
+        });
+    });
     Route::prefix('trips')->name('trips.')->group(function () {
         Route::get('/', [TripController::class, 'index'])->name('index');
         Route::get('/{trip}', [TripController::class, 'show'])->name('show');
@@ -50,3 +57,4 @@ Route::prefix('website')->name('website.')->group(function () {
         Route::get('/{package}', [PackageController::class, 'show'])->name('show');
     });
 });
+Route::get('/', [PackageController::class, 'index'])->name('dashboard.home');

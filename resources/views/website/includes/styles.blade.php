@@ -20,3 +20,6 @@
 
 <!-- Template Stylesheet -->
 <link href="{{ asset('dist/css/style.css') }}" rel="stylesheet">
+
+<!-- Toastify Stylesheet -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">

@@ -32,9 +32,20 @@
                 </div>
             @endguest
             @auth
-                <a href="{{ route('dashboard.home') }}"
-                    class="nav-item nav-link {{ Route::is('dashboard.home') ? 'active' : '' }} ">Dashboard</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dashboard</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{{ route('dashboard.home') }}" class="dropdown-item">Dashboard</a>
+                        <a href="#" class="dropdown-item"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                    </div>
+                </div>
             @endauth
         </div>
     </div>
 </nav>
+<form id="logout-form" action="{{ route('auth.logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>

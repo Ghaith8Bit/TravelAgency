@@ -34,7 +34,8 @@
                     </div>
                     <div class="col-md-6">
                         <h1 class="text-white mb-4">Book Now</h1>
-                        <form action="#" method="POST">
+                        <form action="{{ route('website.reservations.store.trip', ['trip' => $trip]) }}" method="POST">
+                            @csrf
                             <div class="row g-3">
                                 <div class="col-12">
                                     <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
