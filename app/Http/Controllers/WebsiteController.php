@@ -29,6 +29,7 @@ class WebsiteController extends Controller
 
     public function gallery()
     {
-        return view('website.pages.gallery');
+        $trips = Trip::all();
+        return view('website.pages.gallery', ['trips' => $trips]);
     }
 }
