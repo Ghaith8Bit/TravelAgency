@@ -91,23 +91,13 @@
     @endif
     @if (auth()->user()->isUser())
         <section>
-            @if (session('success'))
-                <div class="alert alert-success" role="alert" style="margin-top: 3.5rem;margin-bottom: -3rem;">
-                    {{ session('success') }}
-                </div>
-            @endif
-            @if (session('error'))
-                <div class="alert alert-danger" role="alert" style="margin-top: 3.5rem;margin-bottom: -3rem;">
-                    {{ session('error') }}
-                </div>
-            @endif
             <div class="container-fluid">
                 <div class="row" style="margin-top: 5rem">
                     <div class="col-12 col-sm-6 col-md-3">
                         <div class="info-box">
-                            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hourglass-half"></i></span>
+                            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user-shield"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Credit Hours</span>
+                                <span class="info-box-text">Administrator Accounts</span>
                                 <span class="info-box-number">
                                     1
                                 </span>
@@ -116,10 +106,10 @@
                     </div>
                     <div class="col-12 col-sm-6 col-md-3">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-chart-line"></i></span>
+                            <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-user"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">GPA</span>
+                                <span class="info-box-text">User Accounts</span>
                                 <span class="info-box-number">1</span>
                             </div>
                         </div>
@@ -127,20 +117,19 @@
                     <div class="clearfix hidden-md-up"></div>
                     <div class="col-12 col-sm-6 col-md-3">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-graduation-cap"></i></span>
+                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-book"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Passed Courses</span>
+                                <span class="info-box-text">Courses</span>
                                 <span class="info-box-number">1</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-3">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-warning elevation-1"><i
-                                    class="fas fa-exclamation-triangle"></i></span>
+                            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-bullhorn"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Conditional Passed Courses</span>
+                                <span class="info-box-text">Announcements</span>
                                 <span class="info-box-number">1</span>
                             </div>
                         </div>
@@ -149,7 +138,7 @@
             </div>
         </section>
 
-        <section class="bg-dark text-light" style="padding: 24.4vh 0 30.4vh 0rem;margin-top: 3.5rem">
+        <section class="bg-dark text-light" style="padding: 24.4vh 0 30.4vh 0rem;margin-top: 3rem">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">

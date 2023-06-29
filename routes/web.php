@@ -44,25 +44,22 @@ Route::prefix('website')->name('website.')->group(function () {
     Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
     Route::get('/gallery', [WebsiteController::class, 'gallery'])->name('gallery');
     Route::prefix('blogs')->name('blogs.')->group(function () {
-        Route::get('/', [BlogController::class, 'index'])->name('index');
-        Route::get('/{blog}', [BlogController::class, 'show'])->name('show');
-    });
-    Route::prefix('reservations')->name('reservations.')->middleware('auth')->group(function () {
-        Route::prefix('store')->name('store.')->group(function () {
-            Route::post('trip/{trip}', [ReservationController::class, 'storeTrip'])->name('trip');
-            Route::post('package/{package}', [ReservationController::class, 'storePackage'])->name('package');
-        });
+        Route::get('/', [WebsiteController::class, 'blogs'])->name('index');
     });
     Route::prefix('trips')->name('trips.')->group(function () {
-        Route::get('/', [TripController::class, 'index'])->name('index');
-        Route::get('/{trip}', [TripController::class, 'show'])->name('show');
+        Route::get('/', [WebsiteController::class, 'trips'])->name('index');
+        Route::get('/{trip}', [WebsiteController::class, 'trip'])->name('show');
     });
     Route::prefix('packages')->name('packages.')->group(function () {
-        Route::get('/', [PackageController::class, 'index'])->name('index');
-        Route::get('/{package}', [PackageController::class, 'show'])->name('show');
+        Route::get('/', [WebsiteController::class, 'packages'])->name('index');
+        Route::get('/{package}', [WebsiteController::class, 'package'])->name('show');
     });
     Route::prefix('contact')->name('contact.')->group(function () {
-        Route::post('send', [ContactController::class, '__invoke'])->name('send');
+        Route::post('send', [WebsiteController::class, 'send'])->name('send');
+    });
+    Route::prefix('reservations/store')->name('reservations.store.')->middleware('auth')->group(function () {
+        Route::post('trip/{trip}', [WebsiteController::class, 'storeTrip'])->name('trip');
+        Route::post('package/{package}', [WebsiteController::class, 'storePackage'])->name('package');
     });
 });
 
@@ -83,5 +80,11 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
             Route::patch('/{user}/role', [UserController::class, 'role'])->name('role');
         });
     });
-
+    Route::prefix('trips')->name('trips.')->group(function () {
+        Route::get('/', [TripController::class, 'index'])->name('index');
+        Route::post('/', [UserController::class, 'store'])->name('store');
+        Route::put('/{user}', [UserController::class, 'update'])->name('update');
+        Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
+        Route::patch('/{user}/role', [UserController::class, 'role'])->name('role');
+    });
 });
