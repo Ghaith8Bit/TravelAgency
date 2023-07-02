@@ -70,21 +70,20 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
         Route::patch('/update-name', [ProfileController::class, 'updateName'])->name('updateName');
         Route::patch('/update-password', [ProfileController::class, 'updatePassword'])->name('updatePassword');
     });
-    Route::prefix('users')->name('users.')->group(function () {
+    Route::prefix('users')->name('users.')->middleware('admin')->group(function () {
         Route::get('/{user}', [UserController::class, 'show'])->name('show');
-        Route::middleware('admin')->group(function () {
-            Route::get('/', [UserController::class, 'index'])->name('index');
-            Route::post('/', [UserController::class, 'store'])->name('store');
-            Route::put('/{user}', [UserController::class, 'update'])->name('update');
-            Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
-            Route::patch('/{user}/role', [UserController::class, 'role'])->name('role');
-        });
-    });
-    Route::prefix('trips')->name('trips.')->group(function () {
-        Route::get('/', [TripController::class, 'index'])->name('index');
+        Route::get('/', [UserController::class, 'index'])->name('index');
         Route::post('/', [UserController::class, 'store'])->name('store');
         Route::put('/{user}', [UserController::class, 'update'])->name('update');
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
         Route::patch('/{user}/role', [UserController::class, 'role'])->name('role');
+
+    });
+    Route::prefix('trips')->name('trips.')->middleware('admin')->group(function () {
+        Route::get('/', [TripController::class, 'index'])->name('index');
+        Route::get('/{trip}', [TripController::class, 'show'])->name('show');
+        Route::post('/', [TripController::class, 'store'])->name('store');
+        Route::put('/{trip}', [TripController::class, 'update'])->name('update');
+        Route::delete('/{trip}', [TripController::class, 'destroy'])->name('destroy');
     });
 });

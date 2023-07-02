@@ -2,9 +2,132 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Trip;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class TripController extends Controller
 {
+    public function index()
+    {
+        $trips = Trip::paginate(4);
+        return view('dashboard.trips.index', ['trips' => $trips]);
+    }
 
+    public function show(Trip $trip)
+    {
+        return view('dashboard.trips.show', ['trip' => $trip]);
+    }
 
+    public function store(Request $request)
+    {
+        Validator::extend('after_or_equal_next_day', function ($attribute, $value, $parameters, $validator) {
+            $currentDate = Carbon::tomorrow();
+            return Carbon::parse($value)->greaterThan($currentDate);
+        });
+
+        Validator::extend('after_start_date', function ($attribute, $value, $parameters, $validator) {
+            $startDate = Carbon::parse($validator->getData()['start_date']);
+            return Carbon::parse($value)->greaterThan($startDate);
+        });
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'start_date' => 'required|date|after_or_equal_next_day',
+            'end_date' => 'required|date|after_start_date',
+            'image' => 'nullable|image',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', 'Invalid input data.')->withInput();
+        }
+
+        $trip = new Trip();
+        $trip->name = $request->input('name');
+        $trip->description = $request->input('description');
+        $trip->price = $request->input('price');
+        $trip->start_date = $request->input('start_date');
+        $trip->end_date = $request->input('end_date');
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = Str::random(10) . '.' . $image->getClientOriginalExtension();
+            $imagePath = $image->storeAs('public', $imageName);
+            $trip->image = asset('storage/' . $imageName);
+        } else {
+            $trip->image = asset('storage/no_pic.jpg');
+        }
+
+        $trip->save();
+
+        return redirect()->route('dashboard.trips.index')->with('success', 'Trip created successfully.');
+    }
+
+    public function update(Request $request, Trip $trip)
+    {
+        Validator::extend('after_or_equal_next_day', function ($attribute, $value, $parameters, $validator) {
+            $currentDate = Carbon::tomorrow();
+            return Carbon::parse($value)->greaterThan($currentDate);
+        });
+
+        Validator::extend('after_start_date', function ($attribute, $value, $parameters, $validator) {
+            $startDate = Carbon::parse($validator->getData()['start_date']);
+            return Carbon::parse($value)->greaterThan($startDate);
+        });
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'start_date' => 'required|date|after_or_equal_next_day',
+            'end_date' => 'required|date|after_start_date',
+            'image' => 'nullable|image',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', 'Invalid input data.')->withInput();
+        }
+
+        $trip->name = $request->input('name');
+        $trip->description = $request->input('description');
+        $trip->price = $request->input('price');
+        $trip->start_date = $request->input('start_date');
+        $trip->end_date = $request->input('end_date');
+
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists
+            if ($trip->image && Storage::exists('public/' . basename($trip->image))) {
+                Storage::delete('public/' . basename($trip->image));
+            }
+
+            $image = $request->file('image');
+            $imageName = Str::random(10) . '.' . $image->getClientOriginalExtension();
+            $imagePath = $image->storeAs('public', $imageName);
+            $trip->image = asset('storage/' . $imageName);
+        }
+
+        $trip->save();
+
+        return redirect()->route('dashboard.trips.index')->with('success', 'Trip updated successfully.');
+    }
+
+    public function destroy(Trip $trip)
+    {
+        // Delete the image if it exists and is not the default image
+        if ($trip->image && $trip->image !== asset('storage/no_pic.jpg')) {
+            $imagePath = str_replace(asset('storage/'), 'public/', $trip->image);
+            if (Storage::exists($imagePath)) {
+                Storage::delete($imagePath);
+            }
+        }
+
+        $trip->delete();
+
+        return redirect()->route('dashboard.trips.index')->with('success', 'Trip deleted successfully.');
+    }
 }

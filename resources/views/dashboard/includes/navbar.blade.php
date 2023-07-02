@@ -20,6 +20,10 @@
                     <a href="{{ route('dashboard.users.index') }}"
                         class="nav-link {{ Route::is('dashboard.users.index') ? 'text-primary' : '' }}">Users</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.trips.index') }}"
+                        class="nav-link {{ Route::is('dashboard.trips.index') ? 'text-primary' : '' }}">Trips</a>
+                </li>
             @endif
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="toggleIcon();">
