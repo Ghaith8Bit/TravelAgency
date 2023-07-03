@@ -86,4 +86,11 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
         Route::put('/{trip}', [TripController::class, 'update'])->name('update');
         Route::delete('/{trip}', [TripController::class, 'destroy'])->name('destroy');
     });
+    Route::prefix('packages')->name('packages.')->middleware('admin')->group(function () {
+        Route::get('/', [PackageController::class, 'index'])->name('index');
+        Route::get('/{package}', [PackageController::class, 'show'])->name('show');
+        Route::post('/', [PackageController::class, 'store'])->name('store');
+        Route::put('/{package}', [PackageController::class, 'update'])->name('update');
+        Route::delete('/{package}', [PackageController::class, 'destroy'])->name('destroy');
+    });
 });

@@ -24,6 +24,10 @@
                     <a href="{{ route('dashboard.trips.index') }}"
                         class="nav-link {{ Route::is('dashboard.trips.index') ? 'text-primary' : '' }}">Trips</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.packages.index') }}"
+                        class="nav-link {{ Route::is('dashboard.packages.index') ? 'text-primary' : '' }}">Packages</a>
+                </li>
             @endif
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="toggleIcon();">
