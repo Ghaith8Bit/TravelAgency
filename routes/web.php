@@ -103,14 +103,14 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
             Route::get('/', [ReservationController::class, 'index'])->name('index');
             Route::patch('/{reservation}/is_paid', [ReservationController::class, 'isPaid'])->name('isPaid');
         });
-        Route::get('/', [ReservationController::class, 'show'])->name('show');
+        Route::get('/my_reservations', [ReservationController::class, 'myReservations'])->name('myReservations');
     });
     Route::prefix('ratings')->name('ratings.')->group(function () {
         Route::middleware('admin')->group(function () {
             Route::get('/', [BlogController::class, 'index'])->name('index');
             Route::patch('/{rating}/show-on-blog', [BlogController::class, 'showOnBlog'])->name('showOnBlog');
         });
-        Route::get('/', [BlogController::class, 'show'])->name('show');
+        Route::get('/my_ratings', [BlogController::class, 'myRatings'])->name('myRatings');
     });
 
 });

@@ -23,4 +23,12 @@ class ReservationController extends Controller
         return redirect()->back()->with('success', 'Reservation updated successfully.');
     }
 
+    public function myReservations()
+    {
+        $user = auth()->user();
+        $reservations = Reservation::where('user_id', $user->id)->paginate(10);
+
+        return view('dashboard.reservations.my', ['reservations' => $reservations]);
+    }
+
 }

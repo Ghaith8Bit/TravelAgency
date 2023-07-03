@@ -23,4 +23,12 @@ class BlogController extends Controller
         return redirect()->back()->with('success', 'Rating visibility updated successfully.');
     }
 
+    public function myRatings()
+    {
+        $user = auth()->user();
+        $ratings = Rating::where('user_id', $user->id)->paginate(10);
+
+        return view('dashboard.ratings.my', ['ratings' => $ratings]);
+    }
+
 }
