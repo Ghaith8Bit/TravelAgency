@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->boolean('is_paid')->default(false);
             $table->morphs('reservationable');
             $table->timestamps();
 
