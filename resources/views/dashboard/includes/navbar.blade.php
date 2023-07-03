@@ -29,6 +29,10 @@
                         class="nav-link {{ Route::is('dashboard.packages.index') ? 'text-primary' : '' }}">Packages</a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('dashboard.reservations.index') }}"
+                        class="nav-link {{ Route::is('dashboard.reservations.index') ? 'text-primary' : '' }}">Reservations</a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('dashboard.ratings.index') }}"
                         class="nav-link {{ Route::is('dashboard.ratings.index') ? 'text-primary' : '' }}">Ratings</a>
                 </li>

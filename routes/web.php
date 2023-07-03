@@ -100,4 +100,8 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     Route::prefix('contacts')->name('contacts.')->middleware('admin')->group(function () {
         Route::get('/', [ContactController::class, 'index'])->name('index');
     });
+    Route::prefix('reservations')->name('reservations.')->middleware('admin')->group(function () {
+        Route::get('/', [ReservationController::class, 'index'])->name('index');
+        Route::patch('/{reservation}/is_paid', [ReservationController::class, 'isPaid'])->name('isPaid');
+    });
 });
