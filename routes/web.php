@@ -93,4 +93,8 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
         Route::put('/{package}', [PackageController::class, 'update'])->name('update');
         Route::delete('/{package}', [PackageController::class, 'destroy'])->name('destroy');
     });
+    Route::prefix('ratings')->name('ratings.')->middleware('admin')->group(function () {
+        Route::get('/', [BlogController::class, 'index'])->name('index');
+        Route::patch('/{rating}/show-on-blog', [BlogController::class, 'showOnBlog'])->name('showOnBlog');
+    });
 });
