@@ -70,38 +70,47 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
         Route::patch('/update-name', [ProfileController::class, 'updateName'])->name('updateName');
         Route::patch('/update-password', [ProfileController::class, 'updatePassword'])->name('updatePassword');
     });
-    Route::prefix('users')->name('users.')->middleware('admin')->group(function () {
-        Route::get('/{user}', [UserController::class, 'show'])->name('show');
-        Route::get('/', [UserController::class, 'index'])->name('index');
-        Route::post('/', [UserController::class, 'store'])->name('store');
-        Route::put('/{user}', [UserController::class, 'update'])->name('update');
-        Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
-        Route::patch('/{user}/role', [UserController::class, 'role'])->name('role');
+    Route::middleware('admin')->group(function () {
+        Route::prefix('users')->name('users.')->group(function () {
+            Route::get('/{user}', [UserController::class, 'show'])->name('show');
+            Route::get('/', [UserController::class, 'index'])->name('index');
+            Route::post('/', [UserController::class, 'store'])->name('store');
+            Route::put('/{user}', [UserController::class, 'update'])->name('update');
+            Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
+            Route::patch('/{user}/role', [UserController::class, 'role'])->name('role');
 
+        });
+        Route::prefix('trips')->name('trips.')->group(function () {
+            Route::get('/', [TripController::class, 'index'])->name('index');
+            Route::get('/{trip}', [TripController::class, 'show'])->name('show');
+            Route::post('/', [TripController::class, 'store'])->name('store');
+            Route::put('/{trip}', [TripController::class, 'update'])->name('update');
+            Route::delete('/{trip}', [TripController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('packages')->name('packages.')->group(function () {
+            Route::get('/', [PackageController::class, 'index'])->name('index');
+            Route::get('/{package}', [PackageController::class, 'show'])->name('show');
+            Route::post('/', [PackageController::class, 'store'])->name('store');
+            Route::put('/{package}', [PackageController::class, 'update'])->name('update');
+            Route::delete('/{package}', [PackageController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('contacts')->name('contacts.')->group(function () {
+            Route::get('/', [ContactController::class, 'index'])->name('index');
+        });
     });
-    Route::prefix('trips')->name('trips.')->middleware('admin')->group(function () {
-        Route::get('/', [TripController::class, 'index'])->name('index');
-        Route::get('/{trip}', [TripController::class, 'show'])->name('show');
-        Route::post('/', [TripController::class, 'store'])->name('store');
-        Route::put('/{trip}', [TripController::class, 'update'])->name('update');
-        Route::delete('/{trip}', [TripController::class, 'destroy'])->name('destroy');
+    Route::prefix('reservations')->name('reservations.')->group(function () {
+        Route::middleware('admin')->group(function () {
+            Route::get('/', [ReservationController::class, 'index'])->name('index');
+            Route::patch('/{reservation}/is_paid', [ReservationController::class, 'isPaid'])->name('isPaid');
+        });
+        Route::get('/', [ReservationController::class, 'show'])->name('show');
     });
-    Route::prefix('packages')->name('packages.')->middleware('admin')->group(function () {
-        Route::get('/', [PackageController::class, 'index'])->name('index');
-        Route::get('/{package}', [PackageController::class, 'show'])->name('show');
-        Route::post('/', [PackageController::class, 'store'])->name('store');
-        Route::put('/{package}', [PackageController::class, 'update'])->name('update');
-        Route::delete('/{package}', [PackageController::class, 'destroy'])->name('destroy');
+    Route::prefix('ratings')->name('ratings.')->group(function () {
+        Route::middleware('admin')->group(function () {
+            Route::get('/', [BlogController::class, 'index'])->name('index');
+            Route::patch('/{rating}/show-on-blog', [BlogController::class, 'showOnBlog'])->name('showOnBlog');
+        });
+        Route::get('/', [BlogController::class, 'show'])->name('show');
     });
-    Route::prefix('ratings')->name('ratings.')->middleware('admin')->group(function () {
-        Route::get('/', [BlogController::class, 'index'])->name('index');
-        Route::patch('/{rating}/show-on-blog', [BlogController::class, 'showOnBlog'])->name('showOnBlog');
-    });
-    Route::prefix('contacts')->name('contacts.')->middleware('admin')->group(function () {
-        Route::get('/', [ContactController::class, 'index'])->name('index');
-    });
-    Route::prefix('reservations')->name('reservations.')->middleware('admin')->group(function () {
-        Route::get('/', [ReservationController::class, 'index'])->name('index');
-        Route::patch('/{reservation}/is_paid', [ReservationController::class, 'isPaid'])->name('isPaid');
-    });
+
 });

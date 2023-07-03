@@ -41,6 +41,17 @@
                         class="nav-link {{ Route::is('dashboard.contacts.index') ? 'text-primary' : '' }}">Contacts</a>
                 </li>
             @endif
+            @if (auth()->user()->isUser())
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.reservations.show') }}"
+                        class="nav-link {{ Route::is('dashboard.reservations.show') ? 'text-primary' : '' }}">My
+                        Reservations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.ratings.show') }}"
+                        class="nav-link {{ Route::is('dashboard.ratings.show') ? 'text-primary' : '' }}">My Ratings</a>
+                </li>
+            @endif
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="toggleIcon();">
                     <i id="switch-icon" class="fas" style="font-size: 20px;"></i>
