@@ -37,6 +37,10 @@ class AuthController extends Controller
                 'className' => 'success',
             ]);
         }
+        return redirect()->route('auth.authentication')->with('toastify', [
+            'text' => 'The provided credentials do not match our records.',
+            'className' => 'error',
+        ]);
     }
 
     public function signup(Request $request)
