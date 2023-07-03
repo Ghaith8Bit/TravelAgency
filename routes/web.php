@@ -97,4 +97,7 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
         Route::get('/', [BlogController::class, 'index'])->name('index');
         Route::patch('/{rating}/show-on-blog', [BlogController::class, 'showOnBlog'])->name('showOnBlog');
     });
+    Route::prefix('contacts')->name('contacts.')->middleware('admin')->group(function () {
+        Route::get('/', [ContactController::class, 'index'])->name('index');
+    });
 });

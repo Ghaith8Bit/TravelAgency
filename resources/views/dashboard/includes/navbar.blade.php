@@ -32,6 +32,10 @@
                     <a href="{{ route('dashboard.ratings.index') }}"
                         class="nav-link {{ Route::is('dashboard.ratings.index') ? 'text-primary' : '' }}">Ratings</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.contacts.index') }}"
+                        class="nav-link {{ Route::is('dashboard.contacts.index') ? 'text-primary' : '' }}">Contacts</a>
+                </li>
             @endif
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="toggleIcon();">
