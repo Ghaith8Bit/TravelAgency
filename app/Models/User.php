@@ -68,4 +68,14 @@ class User extends Authenticatable
     {
         return $this->role_id === 1;
     }
+
+    public static function countAdmins()
+    {
+        return self::where('role_id', 2)->count();
+    }
+
+    public static function countUsers()
+    {
+        return self::where('role_id', 1)->count();
+    }
 }

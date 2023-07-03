@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use App\Models\Course;
+use App\Models\Package;
+use App\Models\Trip;
 use App\Models\User;
 
 class DashboardController extends Controller
@@ -16,6 +18,10 @@ class DashboardController extends Controller
      */
     public function __invoke()
     {
-        return view('dashboard.home');
+        $adminCount = User::countAdmins();
+        $userCount = User::countUsers();
+        $tripCount = Trip::countAllTrips();
+        $packageCount = Package::countAllPackages();
+        return view('dashboard.home', ['adminCount' => $adminCount, 'userCount' => $userCount, 'tripCount' => $tripCount, 'packageCount' => $packageCount,]);
     }
 }
