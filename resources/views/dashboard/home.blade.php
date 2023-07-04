@@ -145,44 +145,22 @@
         <section>
             <div class="container-fluid">
                 <div class="row" style="margin-top: 5rem">
-                    <div class="col-12 col-sm-6 col-md-3">
+                    <div class="col-12 col-sm-6">
                         <div class="info-box">
-                            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user-shield"></i></span>
+                            <span class="info-box-icon bg-primary elevation-1"><i
+                                    class="fas fa-calendar-check"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Administrator Accounts</span>
-                                <span class="info-box-number">
-                                    1
-                                </span>
+                                <span class="info-box-text">Reserved Trips</span>
+                                <span class="info-box-number">{{ $reservationCount }}</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-3">
+                    <div class="col-12 col-sm-6">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-user"></i></span>
-
+                            <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-star"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">User Accounts</span>
-                                <span class="info-box-number">1</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix hidden-md-up"></div>
-                    <div class="col-12 col-sm-6 col-md-3">
-                        <div class="info-box mb-3">
-                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-book"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Courses</span>
-                                <span class="info-box-number">1</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-3">
-                        <div class="info-box mb-3">
-                            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-bullhorn"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Announcements</span>
-                                <span class="info-box-number">1</span>
+                                <span class="info-box-text">Total Ratings</span>
+                                <span class="info-box-number">{{ $ratingCount }}</span>
                             </div>
                         </div>
                     </div>
@@ -197,19 +175,28 @@
                         <!-- Carousel indicators -->
                         <ol class="carousel-indicators" style="margin-bottom:-5rem">
                             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            {{-- <li data-target="#myCarousel" data-slide-to="1"></li> --}}
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
                         </ol>
                         <!-- Wrapper for carousel items -->
                         <div class="carousel-inner">
                             <div class="carousel-item active text-center">
-                                <h2 class="mx-auto">User Management <span class="ml-2"><i
-                                            class="fas fa-user"></i></span>
+                                <h2 class="mx-auto">My Reservations<span class="ml-2"><i
+                                            class="fas fa-calendar-check"></i></span>
                                 </h2>
-                                <p class="testimonial mx-auto">This slide can take you to the page where you can manage all
-                                    the
-                                    users on the application.</p>
-                                <a href="{{ route('dashboard.users.index') }}"><button class="btn btn-dark">Manage
-                                        Users</button></a>
+                                <p class="testimonial mx-auto">This slide can take you to the page where you can see all
+                                    your
+                                    Reservations on the application.</p>
+                                <a href="{{ route('dashboard.reservations.myReservations') }}"><button
+                                        class="btn btn-dark">My Reservations</button></a>
+                            </div>
+                            <div class="carousel-item text-center">
+                                <h2 class="mx-auto">My Ratings<span class="ml-2"><i class="fas fa-star"></i></span>
+                                </h2>
+                                <p class="testimonial mx-auto">This slide can take you to the page where you can see all
+                                    your
+                                    Ratings on the application.</p>
+                                <a href="{{ route('dashboard.ratings.myRatings') }}"><button class="btn btn-dark">My
+                                        Rating</button></a>
                             </div>
                         </div>
                         <!-- Carousel controls -->
