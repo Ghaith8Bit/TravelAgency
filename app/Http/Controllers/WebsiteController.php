@@ -159,6 +159,25 @@ class WebsiteController extends Controller
             ]);
         }
 
+        // Query reservations for the authenticated user
+        $reservations = Reservation::where('user_id', auth()->user()->id)->get();
+
+        // Extract the trip IDs of reservations with end dates in the past
+        $tripIds = collect();
+        foreach ($reservations as $reservation) {
+            if ($reservation->reservationable_type === 'App\\Models\\Trip') {
+                $tripIds->push($reservation->reservationable_id);
+            } elseif ($reservation->reservationable_type === 'App\\Models\\Package') {
+                $tripIds->push($reservation->reservationable->trip->id);
+            }
+        }
+        if ($tripIds->contains($trip->id)) {
+            return redirect()->route('website.home')->with('toastify', [
+                'text' => 'Trip has been reserved before.',
+                'className' => 'error',
+            ]);
+        }
+
         // Create a new reservation for the trip
         Reservation::create([
             'user_id' => auth()->user()->id,
@@ -178,6 +197,25 @@ class WebsiteController extends Controller
         if (auth()->user()->isAdmin()) {
             return redirect()->route('website.home')->with('toastify', [
                 'text' => 'Package reservation can not be created from admin.',
+                'className' => 'error',
+            ]);
+        }
+
+        // Query reservations for the authenticated user
+        $reservations = Reservation::where('user_id', auth()->user()->id)->get();
+
+        // Extract the trip IDs of reservations with end dates in the past
+        $tripIds = collect();
+        foreach ($reservations as $reservation) {
+            if ($reservation->reservationable_type === 'App\\Models\\Trip') {
+                $tripIds->push($reservation->reservationable_id);
+            } elseif ($reservation->reservationable_type === 'App\\Models\\Package') {
+                $tripIds->push($reservation->reservationable->trip->id);
+            }
+        }
+        if ($tripIds->contains($package->trip->id)) {
+            return redirect()->route('website.home')->with('toastify', [
+                'text' => 'Trip has been reserved before.',
                 'className' => 'error',
             ]);
         }

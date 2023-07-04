@@ -132,8 +132,13 @@
                                     <a href="{{ route('website.packages.show', ['package' => $package]) }}"
                                         class="btn btn-sm btn-primary px-3 border-end"
                                         style="border-radius: 30px 0 0 30px;">Read More</a>
-                                    <a href="#" class="btn btn-sm btn-primary px-3"
-                                        style="border-radius: 0 30px 30px 0;">Book Now</a>
+                                    <form
+                                        action="{{ route('website.reservations.store.package', ['package' => $package]) }}"
+                                        method="POST" id="bookNowForm">
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-primary px-3"
+                                            style="border-radius: 0 30px 30px 0;">Book Now</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
