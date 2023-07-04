@@ -6,13 +6,14 @@
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">Welcom To Syria</h1>
-                        <h1 class="display-3 text-white mb-3  "> Visit <span class="changecontent"></span></h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">Experience the ultimate adventure with
-                            our incredible trips program!
-                            Join us today and discover the best tourist destinations in the syria , while enjoying
-                            unforgettable
-                            experience</p>
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">{{ __('home.welcome_title') }}</h1>
+                        <h1 class="display-3 text-white mb-3  "> {{ __('home.visit_title') }} @if (LaravelLocalization::getCurrentLocale() == 'en')
+                                <span class="changecontentEn"></span>
+                            @else
+                                <span class="changecontentAr"></span>
+                            @endif
+                        </h1>
+                        <p class="fs-4 text-white mb-4 animated slideInDown">{{ __('home.experience_text') }}</p>
                     </div>
                 </div>
             </div>
@@ -23,7 +24,7 @@
 @section('content')
     <br>
     <section class="container py-4">
-        <h2 class="text-center">Trips</h2>
+        <h2 class="text-center">{{ __('home.trips_section_title') }}</h2>
         <br>
         <div class="products">
             <div class="container">
@@ -54,16 +55,17 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
-                <h1 class="mb-5">Our Services</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">{{ __('home.services_section_title') }}
+                </h6>
+                <h1 class="mb-5">{{ __('home.services_subtitle') }}</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5>Syriawide Tours</h5>
-                            <p>Learn about the most beautiful monuments and tourist places in Syria</p>
+                            <h5>{{ __('home.syriawide_tours_title') }}</h5>
+                            <p>{{ __('home.syriawide_tours_description') }}</p>
                         </div>
                     </div>
                 </div>
@@ -71,11 +73,8 @@
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
-                            <h5>Hotels</h5>
-                            <p>Hotel Reservations: The website can facilitate the booking of flights and
-                                accommodations.
-                                Users can search for available flights, compare prices, and make reservations
-                                directly through the site</p>
+                            <h5>{{ __('home.hotels_title') }}</h5>
+                            <p>{{ __('home.hotels_description') }}</p>
                         </div>
                     </div>
                 </div>
@@ -83,9 +82,8 @@
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-user text-primary mb-4"></i>
-                            <h5>Suitable Price</h5>
-                            <p>Providing the best tourist trips at the best prices, commensurate with the
-                                capabilities of all customers</p>
+                            <h5>{{ __('home.suitable_price_title') }}</h5>
+                            <p>{{ __('home.suitable_price_description') }}</p>
                         </div>
                     </div>
                 </div>
@@ -93,9 +91,8 @@
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-cog text-primary mb-4"></i>
-                            <h5>Activities and Tours</h5>
-                            <p>Travel organizing websites often offer
-                                a wide range of activities and tours for travelers to choose from</p>
+                            <h5>{{ __('home.activities_tours_title') }}</h5>
+                            <p>{{ __('home.activities_tours_description') }}</p>
                         </div>
                     </div>
                 </div>
@@ -106,8 +103,9 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Packages</h6>
-                <h1 class="mb-5">Awesome Packages</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">{{ __('home.packages_section_title') }}
+                </h6>
+                <h1 class="mb-5">{{ __('home.packages_subtitle') }}</h1>
             </div>
             <div class="row g-4 justify-content-center">
                 @foreach ($packages as $package)
@@ -151,8 +149,9 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Process</h6>
-                <h1 class="mb-5">3 Easy Steps</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">{{ __('home.process_section_title') }}
+                </h6>
+                <h1 class="mb-5">3 {{ __('home.process_subtitle') }}</h1>
             </div>
             <div class="row gy-5 gx-4 justify-content-center">
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -161,12 +160,10 @@
                             style="width: 100px; height: 100px;">
                             <i class="fa fa-globe fa-3x text-white"></i>
                         </div>
-                        <h5 class="mt-4">Choose A Destination</h5>
+                        <h5 class="mt-4">{{ __('home.choose_destination_title') }}</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Explore our diverse range of destinations and choose your dream location. From
-                            exotic beach getaways to bustling city adventures, we offer an array of options to suit your
-                            travel preferences.</p>
+                        <p class="mb-0">{{ __('home.choose_destination_text') }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -175,11 +172,10 @@
                             style="width: 100px; height: 100px;">
                             <i class="fa fa-dollar-sign fa-3x text-white"></i>
                         </div>
-                        <h5 class="mt-4">Pay Online</h5>
+                        <h5 class="mt-4">{{ __('home.pay_online_title') }}</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Securely complete your payment online to confirm your travel booking. We offer
-                            convenient and safe payment options, ensuring a hassle-free experience for our customers.</p>
+                        <p class="mb-0">{{ __('home.pay_online_text') }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.5s">
@@ -188,12 +184,10 @@
                             style="width: 100px; height: 100px;">
                             <i class="fa fa-plane fa-3x text-white"></i>
                         </div>
-                        <h5 class="mt-4">Fly Today</h5>
+                        <h5 class="mt-4">{{ __('home.fly_today_title') }}</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Pack your bags and get ready for an amazing journey. Once your booking is
-                            confirmed, you can embark on your adventure and fly to your chosen destination today. Let us
-                            take care of the rest!</p>
+                        <p class="mb-0">{{ __('home.fly_today_text') }}</p>
                     </div>
                 </div>
             </div>

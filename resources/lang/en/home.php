@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'welcome_title' => 'Welcome To Syria',
+    'visit_title' => 'Visit :destination',
+    'experience_text' => 'Experience the ultimate adventure with our incredible trips program! Join us today and discover the best tourist destinations in Syria, while enjoying an unforgettable experience.',
+    'trips_section_title' => 'Trips',
+    'services_section_title' => 'Services',
+    'services_subtitle' => 'Our Services',
+    'syriawide_tours_title' => 'Syriawide Tours',
+    'syriawide_tours_description' => 'Learn about the most beautiful monuments and tourist places in Syria.',
+    'hotels_title' => 'Hotels',
+    'hotels_description' => 'Hotel Reservations: The website can facilitate the booking of flights and accommodations. Users can search for available flights, compare prices, and make reservations directly through the site.',
+    'suitable_price_title' => 'Suitable Price',
+    'suitable_price_description' => 'Providing the best tourist trips at the best prices, commensurate with the capabilities of all customers.',
+    'activities_tours_title' => 'Activities and Tours',
+    'activities_tours_description' => 'Travel organizing websites often offer a wide range of activities and tours for travelers to choose from.',
+    'packages_section_title' => 'Packages',
+    'packages_subtitle' => 'Awesome Packages',
+    'process_section_title' => 'Process',
+    'process_subtitle' => 'Easy Steps',
+    'choose_destination_title' => 'Choose A Destination',
+    'choose_destination_text' => 'Explore our diverse range of destinations and choose your dream location. From exotic beach getaways to bustling city adventures, we offer an array of options to suit your travel preferences.',
+    'pay_online_title' => 'Pay Online',
+    'pay_online_text' => 'Securely complete your payment online to confirm your travel booking. We offer convenient and safe payment options, ensuring a hassle-free experience for our customers.',
+    'fly_today_title' => 'Fly Today',
+    'fly_today_text' => 'Pack your bags and get ready for an amazing journey. Once your booking is confirmed, you can embark on your adventure and fly to your chosen destination today. Let us take care of the rest!',
+];

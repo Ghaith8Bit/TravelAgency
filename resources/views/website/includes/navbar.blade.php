@@ -43,6 +43,23 @@
                     </div>
                 </div>
             @endauth
+            <!-- Language Switcher Button -->
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                    {{ LaravelLocalization::getCurrentLocaleName() }}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li>
+                            <a rel="alternate" hreflang="{{ $localeCode }}"
+                                href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                                class="dropdown-item">
+                                {{ $properties['native'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
