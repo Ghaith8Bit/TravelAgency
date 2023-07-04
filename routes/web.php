@@ -110,7 +110,9 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
             Route::get('/', [BlogController::class, 'index'])->name('index');
             Route::patch('/{rating}/show-on-blog', [BlogController::class, 'showOnBlog'])->name('showOnBlog');
         });
+        Route::post('/', [BlogController::class, 'store'])->name('store');
         Route::get('/my_ratings', [BlogController::class, 'myRatings'])->name('myRatings');
+        Route::get('/trips_without_ratings', [BlogController::class, 'getRateableTrips'])->name('without-ratings');
     });
 
 });
