@@ -64,7 +64,7 @@ class Trip extends Model
     // Get the last three trips
     public static function getLastThreeTrips()
     {
-        return self::orderBy('created_at', 'desc')->limit(3)->get();
+        return self::getUpcomingTrips()->take(3);
     }
 
     // Get the upcoming trips

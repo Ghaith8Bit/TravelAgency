@@ -28,7 +28,7 @@ class Package extends Model
     // Get the last three packages
     public static function getLastThreePackages()
     {
-        return self::orderBy('created_at', 'desc')->limit(3)->get();
+        return self::getUpcomingPackages()->take(3);
     }
 
     // Accessor to get the price
