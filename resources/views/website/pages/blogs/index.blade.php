@@ -5,12 +5,8 @@
         <div class="container py-5">
             <div class="row justify-content-center py-5">
                 <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">blog</h1>
-                    <p class="fs-4 text-white mb-4 animated slideInDown">We aim to provide information that typically
-                        includes personal travel experiences,
-                        tips and articles on specific places, attractions and cultures
-                        and reports of previous trips taken by others, including destinations,
-                        activities they have taken, and their personal experiences. </p>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">{{ __('blogs/index.blog') }}</h1>
+                    <p class="fs-4 text-white mb-4 animated slideInDown">{{ __('blogs/index.blog_description') }}</p>
                 </div>
             </div>
         </div>
@@ -22,9 +18,9 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                    <h3 class="mb-5">Explore Our <span class="text-primary text-uppercase"><br>Read these blog for in
-                            formation</span></h3>
+                    <h6 class="section-title bg-white text-center text-primary px-3">{{ __('blogs/index.testimonial') }}
+                    </h6>
+                    <h3 class="mb-5">{{ __('blogs/index.explore_our_blogs') }}</h3>
                     <br>
                 </div>
                 <div class="row g-4">
