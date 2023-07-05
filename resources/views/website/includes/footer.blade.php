@@ -2,18 +2,18 @@
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Company</h4>
-                <a class="btn btn-link" href="">About Us</a>
-                <a class="btn btn-link" href="">Contact Us</a>
-                <a class="btn btn-link" href="">Privacy Policy</a>
-                <a class="btn btn-link" href="">Terms & Condition</a>
-                <a class="btn btn-link" href="">FAQs & Help</a>
+                <h4 class="text-white mb-3">{{ __('footer.company') }}</h4>
+                <a class="btn btn-link" href="">{{ __('footer.about') }}</a>
+                <a class="btn btn-link" href="">{{ __('footer.contact') }}</a>
+                <a class="btn btn-link" href="">{{ __('footer.privacy') }}</a>
+                <a class="btn btn-link" href="">{{ __('footer.terms') }}</a>
+                <a class="btn btn-link" href="">{{ __('footer.faq') }}</a>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Contact</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                <h4 class="text-white mb-3">{{ __('footer.contact') }}</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ __('footer.address') }}</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ __('footer.phone') }}</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ __('footer.email') }}</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Gallery</h4>
+                <h4 class="text-white mb-3">{{ __('footer.gallery') }}</h4>
                 <div class="row g-2 pt-2">
                     <div class="col-4">
                         <img class="img-fluid bg-light p-1" src="{{ asset('dist/img/package-1.jpg') }}" alt="">
@@ -44,32 +44,24 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Newsletter</h4>
-                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text"
-                        placeholder="Your email">
-                    <button type="button"
-                        class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                </div>
-            </div>
         </div>
     </div>
     <div class="container">
         <div class="copyright">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                    &copy; <a class="border-bottom"
+                        href="{{ route('website.home') }}">{{ __('footer.footer_home') }}</a>,
+                    {{ __('footer.rights_reserved') }}.
 
-
-                    Designed By <a class="border-bottom" href="#">Coding Home</a>
+                    {{ __('footer.designed_by') }} <a class="border-bottom"
+                        href="{{ route('website.about') }}">{{ __('footer.footer_about') }}</a>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
-                        <a href="{{ route('website.home') }}">Home</a>
-                        <a href="">Trips</a>
-                        <a href="{{ route('website.about') }}">About</a>
+                        <a href="{{ route('website.home') }}">{{ __('footer.footer_home') }}</a>
+                        <a href="">{{ __('footer.footer_trips') }}</a>
+                        <a href="{{ route('website.about') }}">{{ __('footer.footer_about') }}</a>
                     </div>
                 </div>
             </div>
