@@ -15,10 +15,10 @@
         <div class="row mb-3" style="margin-top: 5rem">
             <div class="col-md-6">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
-                    Add new User
+                    {{ __('dashboard/users/index.add_user') }}
                 </button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterModal">
-                    Filters & Search
+                    {{ __('dashboard/users/index.filters_search') }}
                 </button>
             </div>
         </div>
@@ -27,12 +27,12 @@
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Date</th>
-                            <th>Is Admin</th>
-                            <th>Control</th>
+                            <th>{{ __('dashboard/users/index.id') }}</th>
+                            <th>{{ __('dashboard/users/index.name') }}</th>
+                            <th>{{ __('dashboard/users/index.email') }}</th>
+                            <th>{{ __('dashboard/users/index.date') }}</th>
+                            <th>{{ __('dashboard/users/index.is_admin') }}</th>
+                            <th>{{ __('dashboard/users/index.control') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,20 +60,20 @@
                                         <button class="btn btn-secondary dropdown-toggle" type="button"
                                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            Actions
+                                            {{ __('dashboard/users/index.actions') }}
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item"
-                                                href="{{ route('dashboard.users.show', $user) }}">Show</a>
+                                                href="{{ route('dashboard.users.show', $user) }}">{{ __('dashboard/users/index.show') }}</a>
                                             <a href="{{ route('dashboard.users.update', $user) }}" class="dropdown-item"
                                                 data-toggle="modal" data-target="#editModal{{ $user->id }}">
-                                                Edit </a>
+                                                {{ __('dashboard/users/index.edit') }} </a>
                                             <form action="{{ route('dashboard.users.destroy', $user) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <a class="dropdown-item"
                                                     href="{{ route('dashboard.users.destroy', $user) }}"
-                                                    onclick="event.preventDefault(); this.closest('form').submit();">Delete</a>
+                                                    onclick="event.preventDefault(); this.closest('form').submit();">{{ __('dashboard/users/index.delete') }}</a>
                                             </form>
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5">No User found.</td>
+                                <td colspan="5">{{ __('dashboard/users/index.no_user_found') }}</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -99,52 +99,54 @@
                 <!-- Filter card content goes here -->
                 <div class="card mt-4">
                     <div class="card-header">
-                        <h5 class="card-title">Filters and Search</h5>
+                        <h5 class="card-title">{{ __('dashboard/users/index.filters_search_label') }}</h5>
                     </div>
                     <div class="card-body px-4 py-3">
                         <form id="usersFilterForm">
                             <div class="form-row mb-3">
                                 <div class="form-group col-md-4">
-                                    <label for="idFilter">ID</label>
+                                    <label for="idFilter">{{ __('dashboard/users/index.id_label') }}</label>
                                     <input type="text" class="form-control" id="idFilter" name="id"
                                         placeholder="Enter ID">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="nameFilter">Name</label>
+                                    <label for="nameFilter">{{ __('dashboard/users/index.name_label') }}</label>
                                     <input type="text" class="form-control" id="nameFilter" name="name"
                                         placeholder="Enter name">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="emailFilter">Email</label>
+                                    <label for="emailFilter">{{ __('dashboard/users/index.email_label') }}</label>
                                     <input type="text" class="form-control" id="emailFilter" name="email"
                                         placeholder="Enter email">
                                 </div>
                             </div>
                             <div class="form-row mb-3">
                                 <div class="form-group col-md-6">
-                                    <label for="dateFilter">Date</label>
+                                    <label for="dateFilter">{{ __('dashboard/users/index.date_label') }}</label>
                                     <select class="form-control" id="dateFilter" name="date_operator">
-                                        <option value="gt">After</option>
-                                        <option value="gte">On or after</option>
-                                        <option value="lt">Before</option>
-                                        <option value="lte">On or before</option>
+                                        <option value="gt">{{ __('dashboard/users/index.gt') }}</option>
+                                        <option value="gte">{{ __('dashboard/users/index.gte') }}</option>
+                                        <option value="lt">{{ __('dashboard/users/index.lt') }}</option>
+                                        <option value="lte">{{ __('dashboard/users/index.lte') }}</option>
                                     </select>
                                     <input type="date" class="form-control mt-2" id="dateFilterValue"
                                         name="date_value">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="roleFilter">Role</label>
+                                    <label for="roleFilter">{{ __('dashboard/users/index.role_label') }}</label>
                                     <select class="form-control" id="roleFilter" name="role">
-                                        <option value="">All</option>
-                                        <option value="2">Admin</option>
-                                        <option value="1">User</option>
+                                        <option value="">{{ __('dashboard/users/index.role_all') }}</option>
+                                        <option value="2">{{ __('dashboard/users/index.role_admin') }}</option>
+                                        <option value="1">{{ __('dashboard/users/index.role_user') }}</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <button type="submit" class="btn btn-primary mr-2">Apply Filters</button>
-                                    <button type="reset" class="btn btn-secondary mr-2">Reset Filters</button>
+                                    <button type="submit"
+                                        class="btn btn-primary mr-2">{{ __('dashboard/users/index.apply_filters') }}</button>
+                                    <button type="reset"
+                                        class="btn btn-secondary mr-2">{{ __('dashboard/users/index.reset_filters') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -165,31 +167,33 @@
                             @method('PUT')
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editModal{{ $user->id }}Label">Edit
-                                    User</h5>
+                                <h5 class="modal-title" id="editModal{{ $user->id }}Label">
+                                    {{ __('dashboard/users/index.edit_user') }}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="name">Name</label>
+                                    <label for="name">{{ __('dashboard/users/index.name') }}</label>
                                     <input value="{{ $user->name }}" type="text" class="form-control"
                                         id="name" name="name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email</label>
+                                    <label for="email">{{ __('dashboard/users/index.email') }}</label>
                                     <input value="{{ $user->email }}" type="text" class="form-control"
                                         id="email" name="email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password</label>
+                                    <label for="password">{{ __('dashboard/users/index.password') }}</label>
                                     <input type="password" class="form-control" id="password" name="password">
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">{{ __('dashboard/users/index.close') }}</button>
+                                <button type="submit"
+                                    class="btn btn-primary">{{ __('dashboard/users/index.save_changes') }}</button>
                             </div>
                         </form>
                     </div>
@@ -205,37 +209,39 @@
                     <form action="{{ route('dashboard.users.store') }}" method="POST">
                         @csrf
                         <div class="modal-header">
-                            <h5 class="modal-title" id="createModalLabel">Add User</h5>
+                            <h5 class="modal-title" id="createModalLabel">{{ __('dashboard/users/index.add_user') }}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name">{{ __('dashboard/users/index.name') }}</label>
                                 <input value="{{ old('name') }}" type="text" class="form-control" id="name"
                                     name="name">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">{{ __('dashboard/users/index.email') }}</label>
                                 <input value="{{ old('email') }}" type="text" class="form-control" id="email"
                                     name="email">
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password">{{ __('dashboard/users/index.password') }}</label>
                                 <input type="password" class="form-control" id="password" name="password">
                             </div>
                             <div class="form-group">
-                                <label for="role">Role</label>
+                                <label for="role">{{ __('dashboard/users/index.role_label') }}</label>
                                 <select class="form-control" id="role" name="role_id">
-                                    <option value="1" selected>User</option>
-                                    <option value="2">Admin</option>
+                                    <option value="1" selected>{{ __('dashboard/users/index.role_user') }}</option>
+                                    <option value="2">{{ __('dashboard/users/index.role_admin') }}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">{{ __('dashboard/users/index.close') }}</button>
+                            <button type="submit"
+                                class="btn btn-primary">{{ __('dashboard/users/index.save_changes') }}</button>
                         </div>
                     </form>
                 </div>
