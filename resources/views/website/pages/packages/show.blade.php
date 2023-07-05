@@ -41,7 +41,7 @@
                                 <div class="col-12">
                                     <button class="btn btn-outline-light w-100 py-3"
                                         type="submit">{{ __('packages/show.book_package_for') }}
-                                        {{ $package->people_count }} Now</button>
+                                        {{ $package->people_count }} </button>
                                 </div>
                             </div>
                         </form>

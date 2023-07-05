@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class Package extends Model
 {
@@ -34,12 +35,22 @@ class Package extends Model
     // Accessor to get the price
     public function getPriceAttribute($value)
     {
-        return $value . ' SP';
+        if (LaravelLocalization::getCurrentLocale() == 'en') {
+            $unit = ' S.P';
+        } else {
+            $unit = ' ل.س';
+        }
+        return $value . $unit;
     }
     // Accessor to get the people count
     public function getPeopleCountAttribute($value)
     {
-        return $value == 1 ? $value . ' person' : $value . ' people';
+        if (LaravelLocalization::getCurrentLocale() == 'en') {
+            $unit = $value == 1 ? ' person' : ' people';
+        } else {
+            $unit = $value == 1 ? ' شخص' : ' أشخاص';
+        }
+        return $value . $unit;
     }
 
     // Count of all packages
