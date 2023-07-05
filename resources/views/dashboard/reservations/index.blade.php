@@ -19,10 +19,10 @@
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
-                            <th>User</th>
-                            <th>Reservation</th>
-                            <th>Type</th>
-                            <th>Is Paid</th>
+                            <th>{{ __('dashboard/reservations/index.user') }}</th>
+                            <th>{{ __('dashboard/reservations/index.reservation') }}</th>
+                            <th>{{ __('dashboard/reservations/index.type') }}</th>
+                            <th>{{ __('dashboard/reservations/index.is_paid') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,16 +35,16 @@
                                     @elseif ($reservation->reservationable_type === 'App\Models\Package')
                                         {{ $reservation->reservationable->trip->name }}
                                     @else
-                                        Unknown Type
+                                        {{ __('dashboard/reservations/index.unknown_type') }}
                                     @endif
                                 </td>
                                 <td>
                                     @if ($reservation->reservationable_type === 'App\Models\Trip')
-                                        Trip
+                                        {{ __('dashboard/reservations/index.trip') }}
                                     @elseif ($reservation->reservationable_type === 'App\Models\Package')
-                                        Package
+                                        {{ __('dashboard/reservations/index.package') }}
                                     @else
-                                        Unknown Type
+                                        {{ __('dashboard/reservations/index.unknown_type') }}
                                     @endif
                                 </td>
 
@@ -65,7 +65,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4">No reservations found.</td>
+                                <td colspan="4">{{ __('dashboard/reservations/index.no_reservations') }}</td>
                             </tr>
                         @endforelse
                     </tbody>
