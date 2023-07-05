@@ -1,6 +1,6 @@
 <nav class="main-header navbar navbar-expand-md navbar-dark">
     <!-- Navbar brand -->
-    <a class="navbar-brand" href="{{ route('website.home') }}">Hotelier</a>
+    <a class="navbar-brand" href="{{ route('website.home') }}">Trips</a>
 
     <!-- Hamburger icon for navbar toggle button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

@@ -81,7 +81,7 @@ class UserController extends Controller
      */
     public function role(User $user)
     {
-        if ($user->email == 'admin@hotelier.com') {
+        if ($user->email == 'admin@trips.com') {
             $message = app()->getLocale() === 'ar' ? 'لا يمكن تحويل هذا المشرف إلى مستخدم.' : 'This Admin can not be User';
             return redirect()->back()->with('error', $message);
         } else {

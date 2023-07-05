@@ -19,8 +19,8 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
                     <h6 class="section-title bg-white text-start text-primary pe-3">{{ __('website/about.about_us') }}</h6>
-                    <h1 class="mb-4">{{ __('website/about.welcome_to_hotelier') }}</h1>
-                    <p class="mb-4">{{ __('website/about.hotelier_description') }}</p>
+                    <h1 class="mb-4">{{ __('website/about.welcome_to_trips') }}</h1>
+                    <p class="mb-4">{{ __('website/about.trips_description') }}</p>
                     <div class="row g-3 pb-4">
                         <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                             <div class="border rounded p-1">

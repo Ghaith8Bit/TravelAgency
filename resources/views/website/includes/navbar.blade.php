@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
     <a href="{{ route('website.home') }}" class="navbar-brand p-0">
-        <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i><span>H</span>otelier</h1>
+        <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i><span>T</span>rips</h1>
         </h1>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
