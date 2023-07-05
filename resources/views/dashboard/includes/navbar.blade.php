@@ -1,6 +1,6 @@
 <nav class="main-header navbar navbar-expand-md navbar-dark">
     <!-- Navbar brand -->
-    <a class="navbar-brand" href="{{ route('website.home') }}">Trips</a>
+    <a class="navbar-brand" href="{{ route('website.home') }}">Hotelier</a>
 
     <!-- Hamburger icon for navbar toggle button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -83,6 +83,23 @@
                     </form>
                 </div>
             </li>
+            <!-- Language Switcher Button -->
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                    {{ LaravelLocalization::getCurrentLocaleName() }}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li>
+                            <a rel="alternate" hreflang="{{ $localeCode }}"
+                                href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                                class="dropdown-item">
+                                {{ $properties['native'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
         </ul>
     </div>
 </nav>

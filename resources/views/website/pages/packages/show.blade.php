@@ -19,28 +19,28 @@
             <div class="booking p-5">
                 <div class="row g-5 align-items-center">
                     <div class="col-md-6 text-white">
-                        <h6 class="text-white text-uppercase">{{ __('packages/show.booking') }}</h6>
-                        <h1 class="text-white mb-4">{{ __('packages/show.online_booking') }}</h1>
-                        <p class="mb-4">{{ __('packages/show.experience_trip') }}</p>
-                        <p class="mb-4">{{ __('packages/show.relaxing_getaway') }}</p>
-                        <p class="mb-2">{{ __('packages/show.start_date') }} <span
+                        <h6 class="text-white text-uppercase">{{ __('website/packages/show.booking') }}</h6>
+                        <h1 class="text-white mb-4">{{ __('website/packages/show.online_booking') }}</h1>
+                        <p class="mb-4">{{ __('website/packages/show.experience_trip') }}</p>
+                        <p class="mb-4">{{ __('website/packages/show.relaxing_getaway') }}</p>
+                        <p class="mb-2">{{ __('website/packages/show.start_date') }} <span
                                 class="text-white">{{ $package->trip->start_date->format('Y-m-d') }}</span></p>
-                        <p class="mb-2">{{ __('packages/show.end_date') }} <span
+                        <p class="mb-2">{{ __('website/packages/show.end_date') }} <span
                                 class="text-white">{{ $package->trip->end_date->format('Y-m-d') }}</span></p>
-                        <p class="mb-2">{{ __('packages/show.price') }} <span
+                        <p class="mb-2">{{ __('website/packages/show.price') }} <span
                                 class="text-white">{{ $package->price }}</span></p>
-                        <p class="mb-2">{{ __('packages/show.person') }} <span
+                        <p class="mb-2">{{ __('website/packages/show.person') }} <span
                                 class="text-white">{{ $package->people_count }}</span></p>
                     </div>
                     <div class="col-md-6">
-                        <h1 class="text-white mb-4">{{ __('packages/show.book_package_now') }}</h1>
+                        <h1 class="text-white mb-4">{{ __('website/packages/show.book_package_now') }}</h1>
                         <form action="{{ route('website.reservations.store.package', ['package' => $package]) }}"
                             method="POST">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-12">
                                     <button class="btn btn-outline-light w-100 py-3"
-                                        type="submit">{{ __('packages/show.book_package_for') }}
+                                        type="submit">{{ __('website/packages/show.book_package_for') }}
                                         {{ $package->people_count }} </button>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                             <div class="row g-3">
                                 <div class="col-12">
                                     <button class="btn btn-outline-light w-100 py-3"
-                                        type="submit">{{ __('packages/show.book_trip_for') }}</button>
+                                        type="submit">{{ __('website/packages/show.book_trip_for') }}</button>
                                 </div>
                             </div>
                         </form>

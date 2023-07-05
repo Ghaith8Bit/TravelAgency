@@ -2,7 +2,7 @@
 
 return [
     'welcome_title' => 'Welcome To Syria',
-    'visit_title' => 'Visit :destination',
+    'visit_title' => 'Visit',
     'experience_text' => 'Experience the ultimate adventure with our incredible trips program! Join us today and discover the best tourist destinations in Syria, while enjoying an unforgettable experience.',
     'trips_section_title' => 'Trips',
     'trip_view_button' => 'View Details',

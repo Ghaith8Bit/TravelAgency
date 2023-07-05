@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
     <a href="{{ route('website.home') }}" class="navbar-brand p-0">
-        <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i><span>T</span>rips</h1>
+        <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i><span>H</span>otelier</h1>
         </h1>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -9,39 +9,41 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
             <a href="{{ route('website.home') }}"
-                class="nav-item nav-link {{ Route::is('website.home') ? 'active' : '' }}">{{ __('navbar.home') }}</a>
+                class="nav-item nav-link {{ Route::is('website.home') ? 'active' : '' }}">{{ __('website/navbar.home') }}</a>
             <a href="{{ route('website.trips.index') }}"
-                class="nav-item nav-link {{ Route::is('website.trips.index') ? 'active' : '' }}">{{ __('navbar.trips') }}</a>
+                class="nav-item nav-link {{ Route::is('website.trips.index') ? 'active' : '' }}">{{ __('website/navbar.trips') }}</a>
             <a href="{{ route('website.packages.index') }}"
-                class="nav-item nav-link {{ Route::is('website.packages.index') ? 'active' : '' }}">{{ __('navbar.packages') }}</a>
+                class="nav-item nav-link {{ Route::is('website.packages.index') ? 'active' : '' }}">{{ __('website/navbar.packages') }}</a>
             <a href="{{ route('website.about') }}"
-                class="nav-item nav-link {{ Route::is('website.about') ? 'active' : '' }}">{{ __('navbar.about') }}</a>
+                class="nav-item nav-link {{ Route::is('website.about') ? 'active' : '' }}">{{ __('website/navbar.about') }}</a>
             <a href="{{ route('website.blogs.index') }}"
-                class="nav-item nav-link {{ Route::is('website.blogs.index') ? 'active' : '' }}">{{ __('navbar.blog') }}</a>
+                class="nav-item nav-link {{ Route::is('website.blogs.index') ? 'active' : '' }}">{{ __('website/navbar.blog') }}</a>
             <a href="{{ route('website.contact') }}"
-                class="nav-item nav-link {{ Route::is('website.contact') ? 'active' : '' }}">{{ __('navbar.contact') }}</a>
+                class="nav-item nav-link {{ Route::is('website.contact') ? 'active' : '' }}">{{ __('website/navbar.contact') }}</a>
             <a href="{{ route('website.gallery') }}"
-                class="nav-item nav-link {{ Route::is('website.gallery') ? 'active' : '' }} ">{{ __('navbar.gallery') }}</a>
+                class="nav-item nav-link {{ Route::is('website.gallery') ? 'active' : '' }} ">{{ __('website/navbar.gallery') }}</a>
             @guest
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle"
-                        data-bs-toggle="dropdown">{{ __('navbar.register') }}</a>
+                        data-bs-toggle="dropdown">{{ __('website/navbar.register') }}</a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{ route('auth.authentication') }}" class="dropdown-item">{{ __('navbar.login') }}</a>
+                        <a href="{{ route('auth.authentication') }}"
+                            class="dropdown-item">{{ __('website/navbar.login') }}</a>
                         <a href="{{ route('auth.authentication') }}#sign-up-btn"
-                            class="dropdown-item">{{ __('navbar.register') }}</a>
+                            class="dropdown-item">{{ __('website/navbar.register') }}</a>
                     </div>
                 </div>
             @endguest
             @auth
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle"
-                        data-bs-toggle="dropdown">{{ __('navbar.dashboard') }}</a>
+                        data-bs-toggle="dropdown">{{ __('website/navbar.dashboard') }}</a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{ route('dashboard.home') }}" class="dropdown-item">{{ __('navbar.dashboard') }}</a>
+                        <a href="{{ route('dashboard.home') }}"
+                            class="dropdown-item">{{ __('website/navbar.dashboard') }}</a>
                         <a href="#" class="dropdown-item"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            {{ __('navbar.logout') }}
+                            {{ __('website/navbar.logout') }}
                         </a>
                     </div>
                 </div>

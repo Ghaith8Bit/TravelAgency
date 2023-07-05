@@ -6,14 +6,15 @@
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">{{ __('home.welcome_title') }}</h1>
-                        <h1 class="display-3 text-white mb-3  "> {{ __('home.visit_title') }} @if (LaravelLocalization::getCurrentLocale() == 'en')
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">{{ __('website/home.welcome_title') }}
+                        </h1>
+                        <h1 class="display-3 text-white mb-3  "> {{ __('website/home.visit_title') }} @if (LaravelLocalization::getCurrentLocale() == 'en')
                                 <span class="changecontentEn"></span>
                             @else
                                 <span class="changecontentAr"></span>
                             @endif
                         </h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">{{ __('home.experience_text') }}</p>
+                        <p class="fs-4 text-white mb-4 animated slideInDown">{{ __('website/home.experience_text') }}</p>
                     </div>
                 </div>
             </div>
@@ -24,7 +25,7 @@
 @section('content')
     <br>
     <section class="container py-4">
-        <h2 class="text-center">{{ __('home.trips_section_title') }}</h2>
+        <h2 class="text-center">{{ __('website/home.trips_section_title') }}</h2>
         <br>
         <div class="products">
             <div class="container">
@@ -39,7 +40,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <a href="{{ route('website.trips.show', ['trip' => $trip]) }}"
-                                                class="btn btn-outline-success">{{ __('home.trip_view_button') }}</a>
+                                                class="btn btn-outline-success">{{ __('website/home.trip_view_button') }}</a>
                                         </div>
                                         <span class="price">{{ $trip->price }}</span>
                                     </div>
@@ -55,17 +56,18 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">{{ __('home.services_section_title') }}
+                <h6 class="section-title bg-white text-center text-primary px-3">
+                    {{ __('website/home.services_section_title') }}
                 </h6>
-                <h1 class="mb-5">{{ __('home.services_subtitle') }}</h1>
+                <h1 class="mb-5">{{ __('website/home.services_subtitle') }}</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5>{{ __('home.syriawide_tours_title') }}</h5>
-                            <p>{{ __('home.syriawide_tours_description') }}</p>
+                            <h5>{{ __('website/home.syriawide_tours_title') }}</h5>
+                            <p>{{ __('website/home.syriawide_tours_description') }}</p>
                         </div>
                     </div>
                 </div>
@@ -73,8 +75,8 @@
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
-                            <h5>{{ __('home.hotels_title') }}</h5>
-                            <p>{{ __('home.hotels_description') }}</p>
+                            <h5>{{ __('website/home.hotels_title') }}</h5>
+                            <p>{{ __('website/home.hotels_description') }}</p>
                         </div>
                     </div>
                 </div>
@@ -82,8 +84,8 @@
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-user text-primary mb-4"></i>
-                            <h5>{{ __('home.suitable_price_title') }}</h5>
-                            <p>{{ __('home.suitable_price_description') }}</p>
+                            <h5>{{ __('website/home.suitable_price_title') }}</h5>
+                            <p>{{ __('website/home.suitable_price_description') }}</p>
                         </div>
                     </div>
                 </div>
@@ -91,8 +93,8 @@
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-cog text-primary mb-4"></i>
-                            <h5>{{ __('home.activities_tours_title') }}</h5>
-                            <p>{{ __('home.activities_tours_description') }}</p>
+                            <h5>{{ __('website/home.activities_tours_title') }}</h5>
+                            <p>{{ __('website/home.activities_tours_description') }}</p>
                         </div>
                     </div>
                 </div>
@@ -103,9 +105,10 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">{{ __('home.packages_section_title') }}
+                <h6 class="section-title bg-white text-center text-primary px-3">
+                    {{ __('website/home.packages_section_title') }}
                 </h6>
-                <h1 class="mb-5">{{ __('home.packages_subtitle') }}</h1>
+                <h1 class="mb-5">{{ __('website/home.packages_subtitle') }}</h1>
             </div>
             <div class="row g-4 justify-content-center">
                 @foreach ($packages as $package)
@@ -129,13 +132,13 @@
                                 <div class="d-flex justify-content-center mb-2">
                                     <a href="{{ route('website.packages.show', ['package' => $package]) }}"
                                         class="btn btn-sm btn-primary px-3 border-end"
-                                        style="border-radius: 30px 0 0 30px;">{{ __('home.package_read_button') }}</a>
+                                        style="border-radius: 30px 0 0 30px;">{{ __('website/home.package_read_button') }}</a>
                                     <form
                                         action="{{ route('website.reservations.store.package', ['package' => $package]) }}"
                                         method="POST" id="bookNowForm">
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-primary px-3"
-                                            style="border-radius: 0 30px 30px 0;">{{ __('home.package_book_button') }}</button>
+                                            style="border-radius: 0 30px 30px 0;">{{ __('website/home.package_book_button') }}</button>
                                     </form>
                                 </div>
                             </div>
@@ -149,9 +152,10 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">{{ __('home.process_section_title') }}
+                <h6 class="section-title bg-white text-center text-primary px-3">
+                    {{ __('website/home.process_section_title') }}
                 </h6>
-                <h1 class="mb-5">3 {{ __('home.process_subtitle') }}</h1>
+                <h1 class="mb-5">3 {{ __('website/home.process_subtitle') }}</h1>
             </div>
             <div class="row gy-5 gx-4 justify-content-center">
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -160,10 +164,10 @@
                             style="width: 100px; height: 100px;">
                             <i class="fa fa-globe fa-3x text-white"></i>
                         </div>
-                        <h5 class="mt-4">{{ __('home.choose_destination_title') }}</h5>
+                        <h5 class="mt-4">{{ __('website/home.choose_destination_title') }}</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">{{ __('home.choose_destination_text') }}</p>
+                        <p class="mb-0">{{ __('website/home.choose_destination_text') }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -172,10 +176,10 @@
                             style="width: 100px; height: 100px;">
                             <i class="fa fa-dollar-sign fa-3x text-white"></i>
                         </div>
-                        <h5 class="mt-4">{{ __('home.pay_online_title') }}</h5>
+                        <h5 class="mt-4">{{ __('website/home.pay_online_title') }}</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">{{ __('home.pay_online_text') }}</p>
+                        <p class="mb-0">{{ __('website/home.pay_online_text') }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.5s">
@@ -184,10 +188,10 @@
                             style="width: 100px; height: 100px;">
                             <i class="fa fa-plane fa-3x text-white"></i>
                         </div>
-                        <h5 class="mt-4">{{ __('home.fly_today_title') }}</h5>
+                        <h5 class="mt-4">{{ __('website/home.fly_today_title') }}</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">{{ __('home.fly_today_text') }}</p>
+                        <p class="mb-0">{{ __('website/home.fly_today_text') }}</p>
                     </div>
                 </div>
             </div>

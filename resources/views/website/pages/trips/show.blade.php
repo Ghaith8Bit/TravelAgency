@@ -19,26 +19,27 @@
             <div class="booking p-5">
                 <div class="row g-5 align-items-center">
                     <div class="col-md-6 text-white">
-                        <h6 class="text-white text-uppercase">{{ __('trips/show.booking') }}</h6>
-                        <h1 class="text-white mb-4">{{ __('trips/show.online_booking') }}</h1>
-                        <p class="mb-4">{{ __('trips/show.experience_trip') }}</p>
-                        <p class="mb-4">{{ __('trips/show.plan_trip') }}</p>
-                        <p class="mb-2">{{ __('trips/show.start_date') }} <span
+                        <h6 class="text-white text-uppercase">{{ __('website/trips/show.booking') }}</h6>
+                        <h1 class="text-white mb-4">{{ __('website/trips/show.online_booking') }}</h1>
+                        <p class="mb-4">{{ __('website/trips/show.experience_trip') }}</p>
+                        <p class="mb-4">{{ __('website/trips/show.plan_trip') }}</p>
+                        <p class="mb-2">{{ __('website/trips/show.start_date') }} <span
                                 class="text-white">{{ $trip->start_date->format('Y-m-d') }}</span></p>
-                        <p class="mb-2">{{ __('trips/show.end_date') }} <span
+                        <p class="mb-2">{{ __('website/trips/show.end_date') }} <span
                                 class="text-white">{{ $trip->end_date->format('Y-m-d') }}</span>
                         </p>
-                        <p class="mb-2">{{ __('trips/show.price') }} <span class="text-white">{{ $trip->price }}</span>
+                        <p class="mb-2">{{ __('website/trips/show.price') }} <span
+                                class="text-white">{{ $trip->price }}</span>
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <h1 class="text-white mb-4">{{ __('trips/show.book_now') }}</h1>
+                        <h1 class="text-white mb-4">{{ __('website/trips/show.book_now') }}</h1>
                         <form action="{{ route('website.reservations.store.trip', ['trip' => $trip]) }}" method="POST">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-12">
                                     <button class="btn btn-outline-light w-100 py-3"
-                                        type="submit">{{ __('trips/show.book_now') }}</button>
+                                        type="submit">{{ __('website/trips/show.book_now') }}</button>
                                 </div>
                             </div>
                         </form>

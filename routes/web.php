@@ -42,7 +42,7 @@ Route::prefix('auth')->name('auth.')->group(function () {
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-    ], function () {
+], function () {
     Route::prefix('website')->name('website.')->group(function () {
         Route::get('/home', [WebsiteController::class, 'home'])->name('home');
         Route::get('/about', [WebsiteController::class, 'about'])->name('about');
@@ -67,58 +67,57 @@ Route::group([
             Route::post('package/{package}', [WebsiteController::class, 'storePackage'])->name('package');
         });
     });
-});
 
-Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function () {
-    Route::get('/home', [DashboardController::class, '__invoke'])->name('home');
-    Route::prefix('profile')->name('profile.')->group(function () {
-        Route::get('/', [ProfileController::class, 'index'])->name('index');
-        Route::patch('/update-name', [ProfileController::class, 'updateName'])->name('updateName');
-        Route::patch('/update-password', [ProfileController::class, 'updatePassword'])->name('updatePassword');
-    });
-    Route::middleware('admin')->group(function () {
-        Route::prefix('users')->name('users.')->group(function () {
-            Route::get('/{user}', [UserController::class, 'show'])->name('show');
-            Route::get('/', [UserController::class, 'index'])->name('index');
-            Route::post('/', [UserController::class, 'store'])->name('store');
-            Route::put('/{user}', [UserController::class, 'update'])->name('update');
-            Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
-            Route::patch('/{user}/role', [UserController::class, 'role'])->name('role');
-
+    Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function () {
+        Route::get('/home', [DashboardController::class, '__invoke'])->name('home');
+        Route::prefix('profile')->name('profile.')->group(function () {
+            Route::get('/', [ProfileController::class, 'index'])->name('index');
+            Route::patch('/update-name', [ProfileController::class, 'updateName'])->name('updateName');
+            Route::patch('/update-password', [ProfileController::class, 'updatePassword'])->name('updatePassword');
         });
-        Route::prefix('trips')->name('trips.')->group(function () {
-            Route::get('/', [TripController::class, 'index'])->name('index');
-            Route::get('/{trip}', [TripController::class, 'show'])->name('show');
-            Route::post('/', [TripController::class, 'store'])->name('store');
-            Route::put('/{trip}', [TripController::class, 'update'])->name('update');
-            Route::delete('/{trip}', [TripController::class, 'destroy'])->name('destroy');
-        });
-        Route::prefix('packages')->name('packages.')->group(function () {
-            Route::get('/', [PackageController::class, 'index'])->name('index');
-            Route::get('/{package}', [PackageController::class, 'show'])->name('show');
-            Route::post('/', [PackageController::class, 'store'])->name('store');
-            Route::put('/{package}', [PackageController::class, 'update'])->name('update');
-            Route::delete('/{package}', [PackageController::class, 'destroy'])->name('destroy');
-        });
-        Route::prefix('contacts')->name('contacts.')->group(function () {
-            Route::get('/', [ContactController::class, 'index'])->name('index');
-        });
-    });
-    Route::prefix('reservations')->name('reservations.')->group(function () {
         Route::middleware('admin')->group(function () {
-            Route::get('/', [ReservationController::class, 'index'])->name('index');
-            Route::patch('/{reservation}/is_paid', [ReservationController::class, 'isPaid'])->name('isPaid');
-        });
-        Route::get('/my_reservations', [ReservationController::class, 'myReservations'])->name('myReservations');
-    });
-    Route::prefix('ratings')->name('ratings.')->group(function () {
-        Route::middleware('admin')->group(function () {
-            Route::get('/', [BlogController::class, 'index'])->name('index');
-            Route::patch('/{rating}/show-on-blog', [BlogController::class, 'showOnBlog'])->name('showOnBlog');
-        });
-        Route::post('/', [BlogController::class, 'store'])->name('store');
-        Route::get('/my_ratings', [BlogController::class, 'myRatings'])->name('myRatings');
-        Route::get('/trips_without_ratings', [BlogController::class, 'getRateableTrips'])->name('without-ratings');
-    });
+            Route::prefix('users')->name('users.')->group(function () {
+                Route::get('/{user}', [UserController::class, 'show'])->name('show');
+                Route::get('/', [UserController::class, 'index'])->name('index');
+                Route::post('/', [UserController::class, 'store'])->name('store');
+                Route::put('/{user}', [UserController::class, 'update'])->name('update');
+                Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
+                Route::patch('/{user}/role', [UserController::class, 'role'])->name('role');
 
+            });
+            Route::prefix('trips')->name('trips.')->group(function () {
+                Route::get('/', [TripController::class, 'index'])->name('index');
+                Route::get('/{trip}', [TripController::class, 'show'])->name('show');
+                Route::post('/', [TripController::class, 'store'])->name('store');
+                Route::put('/{trip}', [TripController::class, 'update'])->name('update');
+                Route::delete('/{trip}', [TripController::class, 'destroy'])->name('destroy');
+            });
+            Route::prefix('packages')->name('packages.')->group(function () {
+                Route::get('/', [PackageController::class, 'index'])->name('index');
+                Route::get('/{package}', [PackageController::class, 'show'])->name('show');
+                Route::post('/', [PackageController::class, 'store'])->name('store');
+                Route::put('/{package}', [PackageController::class, 'update'])->name('update');
+                Route::delete('/{package}', [PackageController::class, 'destroy'])->name('destroy');
+            });
+            Route::prefix('contacts')->name('contacts.')->group(function () {
+                Route::get('/', [ContactController::class, 'index'])->name('index');
+            });
+        });
+        Route::prefix('reservations')->name('reservations.')->group(function () {
+            Route::middleware('admin')->group(function () {
+                Route::get('/', [ReservationController::class, 'index'])->name('index');
+                Route::patch('/{reservation}/is_paid', [ReservationController::class, 'isPaid'])->name('isPaid');
+            });
+            Route::get('/my_reservations', [ReservationController::class, 'myReservations'])->name('myReservations');
+        });
+        Route::prefix('ratings')->name('ratings.')->group(function () {
+            Route::middleware('admin')->group(function () {
+                Route::get('/', [BlogController::class, 'index'])->name('index');
+                Route::patch('/{rating}/show-on-blog', [BlogController::class, 'showOnBlog'])->name('showOnBlog');
+            });
+            Route::post('/', [BlogController::class, 'store'])->name('store');
+            Route::get('/my_ratings', [BlogController::class, 'myRatings'])->name('myRatings');
+            Route::get('/trips_without_ratings', [BlogController::class, 'getRateableTrips'])->name('without-ratings');
+        });
+    });
 });

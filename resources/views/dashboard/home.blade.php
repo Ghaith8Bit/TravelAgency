@@ -15,7 +15,7 @@
                         <div class="info-box">
                             <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user-shield"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Administrator Accounts</span>
+                                <span class="info-box-text">{{ __('dashboard/home.administrator_accounts') }}</span>
                                 <span class="info-box-number">{{ $adminCount }}</span>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
                             <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-user"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">User Accounts</span>
+                                <span class="info-box-text">{{ __('dashboard/home.user_accounts') }}</span>
                                 <span class="info-box-number">{{ $userCount }}</span>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-suitcase"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Trips</span>
+                                <span class="info-box-text">{{ __('dashboard/home.trips') }}</span>
                                 <span class="info-box-number">{{ $tripCount }}</span>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-box"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Packages</span>
+                                <span class="info-box-text">{{ __('dashboard/home.packages') }}</span>
                                 <span class="info-box-number">{{ $packageCount }}</span>
                             </div>
                         </div>
@@ -70,63 +70,52 @@
                         <!-- Wrapper for carousel items -->
                         <div class="carousel-inner">
                             <div class="carousel-item active text-center">
-                                <h2 class="mx-auto">User Management <span class="ml-2"><i class="fas fa-user"></i></span>
+                                <h2 class="mx-auto">{{ __('dashboard/home.user_management') }} <span class="ml-2"><i
+                                            class="fas fa-user"></i></span>
                                 </h2>
-                                <p class="testimonial mx-auto">This slide can take you to the page where you can manage all
-                                    the
-                                    users on the application.</p>
-                                <a href="{{ route('dashboard.users.index') }}"><button class="btn btn-dark">Manage
-                                        Users</button></a>
+                                <p class="testimonial mx-auto">{{ __('dashboard/home.user_management_slide') }}</p>
+                                <a href="{{ route('dashboard.users.index') }}"><button
+                                        class="btn btn-dark">{{ __('dashboard/home.manage_users') }}</button></a>
                             </div>
                             <div class="carousel-item text-center">
-                                <h2 class="mx-auto">Trip Management <span class="ml-2"><i
+                                <h2 class="mx-auto">{{ __('dashboard/home.trip_management') }} <span class="ml-2"><i
                                             class="fas fa-suitcase"></i></span>
                                 </h2>
-                                <p class="testimonial mx-auto">This slide can take you to the page where you can manage all
-                                    the
-                                    trips on the application.</p>
-                                <a href="{{ route('dashboard.trips.index') }}"><button class="btn btn-dark">Manage
-                                        Trips</button></a>
+                                <p class="testimonial mx-auto">{{ __('dashboard/home.trip_management_slide') }}</p>
+                                <a href="{{ route('dashboard.trips.index') }}"><button
+                                        class="btn btn-dark">{{ __('dashboard/home.manage_trips') }}</button></a>
                             </div>
                             <div class="carousel-item text-center">
-                                <h2 class="mx-auto">Package Management <span class="ml-2"><i
+                                <h2 class="mx-auto">{{ __('dashboard/home.package_management') }} <span class="ml-2"><i
                                             class="fas fa-box"></i></span>
                                 </h2>
-                                <p class="testimonial mx-auto">This slide can take you to the page where you can manage all
-                                    the
-                                    packages on the application.</p>
-                                <a href="{{ route('dashboard.packages.index') }}"><button class="btn btn-dark">Manage
-                                        Packages</button></a>
+                                <p class="testimonial mx-auto">{{ __('dashboard/home.package_management_slide') }}</p>
+                                <a href="{{ route('dashboard.packages.index') }}"><button
+                                        class="btn btn-dark">{{ __('dashboard/home.manage_packages') }}</button></a>
                             </div>
                             <div class="carousel-item text-center">
-                                <h2 class="mx-auto">Reservation Management <span class="ml-2"><i
-                                            class="fas fa-calendar-check"></i></span>
+                                <h2 class="mx-auto">{{ __('dashboard/home.reservation_management') }} <span
+                                        class="ml-2"><i class="fas fa-calendar-check"></i></span>
                                 </h2>
-                                <p class="testimonial mx-auto">This slide can take you to the page where you can manage all
-                                    the
-                                    packages on the application.</p>
-                                <a href="{{ route('dashboard.reservations.index') }}"><button class="btn btn-dark">Manage
-                                        Packages</button></a>
+                                <p class="testimonial mx-auto">{{ __('dashboard/home.reservation_management_slide') }}</p>
+                                <a href="{{ route('dashboard.reservations.index') }}"><button
+                                        class="btn btn-dark">{{ __('dashboard/home.manage_reservations') }}</button></a>
                             </div>
                             <div class="carousel-item text-center">
-                                <h2 class="mx-auto">Rating Management <span class="ml-2"><i
+                                <h2 class="mx-auto">{{ __('dashboard/home.rating_management') }} <span class="ml-2"><i
                                             class="fas fa-star"></i></span>
                                 </h2>
-                                <p class="testimonial mx-auto">This slide can take you to the page where you can manage all
-                                    the
-                                    ratings on the application.</p>
-                                <a href="{{ route('dashboard.ratings.index') }}"><button class="btn btn-dark">Manage
-                                        Ratings</button></a>
+                                <p class="testimonial mx-auto">{{ __('dashboard/home.rating_management_slide') }}</p>
+                                <a href="{{ route('dashboard.ratings.index') }}"><button
+                                        class="btn btn-dark">{{ __('dashboard/home.manage_ratings') }}</button></a>
                             </div>
                             <div class="carousel-item text-center">
-                                <h2 class="mx-auto">Contact Management <span class="ml-2"><i
+                                <h2 class="mx-auto">{{ __('dashboard/home.contact_management') }} <span class="ml-2"><i
                                             class="fas fa-phone"></i></span>
                                 </h2>
-                                <p class="testimonial mx-auto">This slide can take you to the page where you can manage all
-                                    the
-                                    contacts on the application.</p>
-                                <a href="{{ route('dashboard.contacts.index') }}"><button class="btn btn-dark">Manage
-                                        Contacts</button></a>
+                                <p class="testimonial mx-auto">{{ __('dashboard/home.contact_management_slide') }}</p>
+                                <a href="{{ route('dashboard.contacts.index') }}"><button
+                                        class="btn btn-dark">{{ __('dashboard/home.manage_contacts') }}</button></a>
                             </div>
                         </div>
                         <!-- Carousel controls -->
@@ -150,7 +139,7 @@
                             <span class="info-box-icon bg-primary elevation-1"><i
                                     class="fas fa-calendar-check"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Reserved Trips</span>
+                                <span class="info-box-text">{{ __('dashboard/home.reserved_trips') }}</span>
                                 <span class="info-box-number">{{ $reservationCount }}</span>
                             </div>
                         </div>
@@ -159,7 +148,7 @@
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-star"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Total Ratings</span>
+                                <span class="info-box-text">{{ __('dashboard/home.total_ratings') }}</span>
                                 <span class="info-box-number">{{ $ratingCount }}</span>
                             </div>
                         </div>
@@ -180,23 +169,20 @@
                         <!-- Wrapper for carousel items -->
                         <div class="carousel-inner">
                             <div class="carousel-item active text-center">
-                                <h2 class="mx-auto">My Reservations<span class="ml-2"><i
+                                <h2 class="mx-auto">{{ __('dashboard/home.my_reservations') }}<span class="ml-2"><i
                                             class="fas fa-calendar-check"></i></span>
                                 </h2>
-                                <p class="testimonial mx-auto">This slide can take you to the page where you can see all
-                                    your
-                                    Reservations on the application.</p>
+                                <p class="testimonial mx-auto">{{ __('dashboard/home.my_reservations_slide') }}</p>
                                 <a href="{{ route('dashboard.reservations.myReservations') }}"><button
-                                        class="btn btn-dark">My Reservations</button></a>
+                                        class="btn btn-dark">{{ __('dashboard/home.my_reservations_button') }}</button></a>
                             </div>
                             <div class="carousel-item text-center">
-                                <h2 class="mx-auto">My Ratings<span class="ml-2"><i class="fas fa-star"></i></span>
+                                <h2 class="mx-auto">{{ __('dashboard/home.my_ratings') }}<span class="ml-2"><i
+                                            class="fas fa-star"></i></span>
                                 </h2>
-                                <p class="testimonial mx-auto">This slide can take you to the page where you can see all
-                                    your
-                                    Ratings on the application.</p>
-                                <a href="{{ route('dashboard.ratings.myRatings') }}"><button class="btn btn-dark">My
-                                        Rating</button></a>
+                                <p class="testimonial mx-auto">{{ __('dashboard/home.my_ratings_slide') }}</p>
+                                <a href="{{ route('dashboard.ratings.myRatings') }}"><button
+                                        class="btn btn-dark">{{ __('dashboard/home.my_ratings_button') }}</button></a>
                             </div>
                         </div>
                         <!-- Carousel controls -->

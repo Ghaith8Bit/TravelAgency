@@ -5,8 +5,8 @@
         <div class="container py-5">
             <div class="row justify-content-center py-5">
                 <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">{{ __('about.about') }}</h1>
-                    <p class="fs-4 text-white mb-4 animated slideInDown">{{ __('about.using_our_website') }}</p>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">{{ __('website/about.about') }}</h1>
+                    <p class="fs-4 text-white mb-4 animated slideInDown">{{ __('website/about.using_our_website') }}</p>
                 </div>
             </div>
         </div>
@@ -18,16 +18,16 @@
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
-                    <h6 class="section-title bg-white text-start text-primary pe-3">{{ __('about.about_us') }}</h6>
-                    <h1 class="mb-4">{{ __('about.welcome_to_hotelier') }}</h1>
-                    <p class="mb-4">{{ __('about.hotelier_description') }}</p>
+                    <h6 class="section-title bg-white text-start text-primary pe-3">{{ __('website/about.about_us') }}</h6>
+                    <h1 class="mb-4">{{ __('website/about.welcome_to_hotelier') }}</h1>
+                    <p class="mb-4">{{ __('website/about.hotelier_description') }}</p>
                     <div class="row g-3 pb-4">
                         <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                             <div class="border rounded p-1">
                                 <div class="border rounded text-center p-4">
                                     <i class="fas fa-suitcase facts-icon text-primary mb-2"></i>
                                     <h2 class="mb-1" data-toggle="counter-up">{{ $tripCount }}</h2>
-                                    <p class="mb-0">{{ __('about.total_trips') }}</p>
+                                    <p class="mb-0">{{ __('website/about.total_trips') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                                 <div class="border rounded text-center p-4">
                                     <i class="fas fa-box facts-icon text-primary mb-2"></i>
                                     <h2 class="mb-1" data-toggle="counter-up">{{ $packageCount }}</h2>
-                                    <p class="mb-0">{{ __('about.total_packages') }}</p>
+                                    <p class="mb-0">{{ __('website/about.total_packages') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                 <div class="border rounded text-center p-4">
                                     <i class="fas fa-calendar-check facts-icon text-primary mb-2"></i>
                                     <h2 class="mb-1" data-toggle="counter-up">{{ $reservationCount }}</h2>
-                                    <p class="mb-0">{{ __('about.total_reservations') }}</p>
+                                    <p class="mb-0">{{ __('website/about.total_reservations') }}</p>
                                 </div>
                             </div>
                         </div>

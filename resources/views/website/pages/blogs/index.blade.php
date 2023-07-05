@@ -5,8 +5,8 @@
         <div class="container py-5">
             <div class="row justify-content-center py-5">
                 <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">{{ __('blogs/index.blog') }}</h1>
-                    <p class="fs-4 text-white mb-4 animated slideInDown">{{ __('blogs/index.blog_description') }}</p>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">{{ __('website/blogs/index.blog') }}</h1>
+                    <p class="fs-4 text-white mb-4 animated slideInDown">{{ __('website/blogs/index.blog_description') }}</p>
                 </div>
             </div>
         </div>
@@ -18,9 +18,10 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title bg-white text-center text-primary px-3">{{ __('blogs/index.testimonial') }}
+                    <h6 class="section-title bg-white text-center text-primary px-3">
+                        {{ __('website/blogs/index.testimonial') }}
                     </h6>
-                    <h3 class="mb-5">{{ __('blogs/index.explore_our_blogs') }}</h3>
+                    <h3 class="mb-5">{{ __('website/blogs/index.explore_our_blogs') }}</h3>
                     <br>
                 </div>
                 <div class="row g-4">
