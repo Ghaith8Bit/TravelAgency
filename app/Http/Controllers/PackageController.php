@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Package;
 use App\Models\Trip;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class PackageController extends Controller
 {
@@ -32,7 +33,8 @@ class PackageController extends Controller
         $trip = Trip::find($request->trip_id);
 
         if (!$trip) {
-            return redirect()->route('dashboard.packages.index')->with('error', 'Selected trip does not exist.');
+            $message = app()->getLocale() === 'ar' ? 'الرحلة غير موجودة' : 'Trip not exists.';
+            return redirect()->back()->with('error', $message);
         }
 
         $package = new Package();
@@ -41,7 +43,9 @@ class PackageController extends Controller
         $package->trip_id = $request->trip_id;
         $package->save();
 
-        return redirect()->route('dashboard.packages.index')->with('success', 'Package created successfully.');
+        $message = app()->getLocale() === 'ar' ? 'تم إنشاء الحزمة بنجاح.' : 'Package created successfully.';
+
+        return redirect()->route('dashboard.packages.index')->with('success', $message);
     }
 
     public function update(Request $request, Package $package)
@@ -53,7 +57,8 @@ class PackageController extends Controller
         ]);
 
         if (!$package) {
-            return redirect()->back()->with('error', 'Package does not exist.');
+            $message = app()->getLocale() === 'ar' ? 'الحزمة غير موجودة' : 'Package not exists.';
+            return redirect()->back()->with('error', $message);
         }
 
         $package->people_count = $request->people_count;
@@ -61,17 +66,22 @@ class PackageController extends Controller
         $package->trip_id = $request->trip_id;
         $package->save();
 
-        return redirect()->back()->with('success', 'Package updated successfully.');
+        $message = app()->getLocale() === 'ar' ? 'تم تحديث الحزمة بنجاح.' : 'Package updated successfully.';
+
+        return redirect()->back()->with('success', $message);
     }
 
     public function destroy(Package $package)
     {
         if (!$package) {
-            return redirect()->back()->with('error', 'Package does not exist.');
+            $message = app()->getLocale() === 'ar' ? 'الحزمة غير موجودة' : 'Package not exists.';
+            return redirect()->back()->with('error', $message);
         }
 
         $package->delete();
 
-        return redirect()->back()->with('success', 'Package deleted successfully.');
+        $message = app()->getLocale() === 'ar' ? 'تم حذف الحزمة بنجاح.' : 'Package deleted successfully.';
+
+        return redirect()->back()->with('success', $message);
     }
 }

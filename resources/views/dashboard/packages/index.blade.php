@@ -15,7 +15,7 @@
         <div class="row mb-3" style="margin-top: 5rem">
             <div class="col-md-6">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
-                    Add new Package
+                    {{ __('dashboard/packages/index.add_new_package') }}
                 </button>
             </div>
         </div>
@@ -24,14 +24,14 @@
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th>People Count</th>
-                            <th>Image</th>
-                            <th>Control</th>
+                            <th>{{ __('dashboard/packages/index.name') }}</th>
+                            <th>{{ __('dashboard/packages/index.description') }}</th>
+                            <th>{{ __('dashboard/packages/index.price') }}</th>
+                            <th>{{ __('dashboard/packages/index.start_date') }}</th>
+                            <th>{{ __('dashboard/packages/index.end_date') }}</th>
+                            <th>{{ __('dashboard/packages/index.people_count') }}</th>
+                            <th>{{ __('dashboard/packages/index.image') }}</th>
+                            <th>{{ __('dashboard/packages/index.control') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,22 +49,22 @@
                                         <button class="btn btn-secondary dropdown-toggle" type="button"
                                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            Actions
+                                            {{ __('dashboard/packages/index.actions') }}
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item"
-                                                href="{{ route('dashboard.packages.show', $package) }}">Show</a>
+                                                href="{{ route('dashboard.packages.show', $package) }}">{{ __('dashboard/packages/index.show') }}</a>
                                             <a href="{{ route('dashboard.packages.update', $package) }}"
                                                 class="dropdown-item" data-toggle="modal"
                                                 data-target="#editModal{{ $package->id }}">
-                                                Edit </a>
+                                                {{ __('dashboard/packages/index.edit') }}</a>
                                             <form action="{{ route('dashboard.packages.destroy', $package) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <a class="dropdown-item"
                                                     href="{{ route('dashboard.packages.destroy', $package) }}"
-                                                    onclick="event.preventDefault(); this.closest('form').submit();">Delete</a>
+                                                    onclick="event.preventDefault(); this.closest('form').submit();">{{ __('dashboard/packages/index.delete') }}</a>
                                             </form>
                                         </div>
                                     </div>
@@ -72,7 +72,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="8">No packages found.</td>
+                                <td colspan="8">{{ __('dashboard/packages/index.no_packages') }}</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -92,36 +92,39 @@
                         @method('PUT')
                         @csrf
                         <div class="modal-header">
-                            <h5 class="modal-title" id="editModal{{ $package->id }}Label">Edit Package</h5>
+                            <h5 class="modal-title" id="editModal{{ $package->id }}Label">
+                                {{ __('dashboard/packages/index.edit_package') }}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="trip_name">Trip Name</label>
+                                <label for="trip_name">{{ __('dashboard/packages/index.trip_name') }}</label>
                                 <input value="{{ $package->trip->name }}" type="text" class="form-control"
                                     id="trip_name" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="trip_description">Trip Description</label>
+                                <label for="trip_description">{{ __('dashboard/packages/index.trip_description') }}</label>
                                 <textarea class="form-control" id="trip_description" readonly>{{ $package->trip->description }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="people_count">People Count</label>
+                                <label for="people_count">{{ __('dashboard/packages/index.people_count') }}</label>
                                 <input value="{{ $package->people_count }}" type="number" class="form-control"
                                     id="people_count" name="people_count">
                             </div>
                             <div class="form-group">
-                                <label for="price">Price</label>
+                                <label for="price">{{ __('dashboard/packages/index.price') }}</label>
                                 <input value="{{ $package->price }}" type="number" class="form-control" id="price"
                                     name="price">
                             </div>
                             <input type="hidden" name="trip_id" value="{{ $package->trip_id }}">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">{{ __('dashboard/packages/index.close') }}</button>
+                            <button type="submit"
+                                class="btn btn-primary">{{ __('dashboard/packages/index.save_changes') }}</button>
                         </div>
                     </form>
                 </div>
@@ -138,14 +141,15 @@
                 <form action="{{ route('dashboard.packages.store') }}" method="POST">
                     @csrf
                     <div class="modal-header">
-                        <h5 class="modal-title" id="createModalLabel">Add Package</h5>
+                        <h5 class="modal-title" id="createModalLabel">
+                            {{ __('dashboard/packages/index.add_package') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="trip_id">Select a Trip</label>
+                            <label for="trip_id">{{ __('dashboard/packages/index.select_trip') }}</label>
                             <select class="form-control" id="trip_id" name="trip_id">
                                 @foreach ($trips as $trip)
                                     <option value="{{ $trip->id }}">{{ $trip->name }}</option>
@@ -153,19 +157,21 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="people_count">People Count</label>
+                            <label for="people_count">{{ __('dashboard/packages/index.people_count') }}</label>
                             <input value="{{ old('people_count') }}" type="number" class="form-control"
                                 id="people_count" name="people_count">
                         </div>
                         <div class="form-group">
-                            <label for="price">Price</label>
+                            <label for="price">{{ __('dashboard/packages/index.price') }}</label>
                             <input value="{{ old('price') }}" type="number" class="form-control" id="price"
                                 name="price">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">{{ __('dashboard/packages/index.close') }}</button>
+                        <button type="submit"
+                            class="btn btn-primary">{{ __('dashboard/packages/index.save_changes') }}</button>
                     </div>
                 </form>
             </div>
