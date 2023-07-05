@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class Trip extends Model
 {
@@ -129,7 +130,12 @@ class Trip extends Model
     // Accessor to get the price
     public function getPriceAttribute($value)
     {
-        return $value . ' SP';
+        if (LaravelLocalization::getCurrentLocale() == 'en') {
+            $unit = ' S.P';
+        } else {
+            $unit = ' ل.س';
+        }
+        return $value . $unit;
     }
 
     // Count of all trips
