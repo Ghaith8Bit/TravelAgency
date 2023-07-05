@@ -44,7 +44,8 @@ class TripController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->with('error', 'Invalid input data.')->withInput();
+            $message = app()->getLocale() === 'ar' ? 'بيانات غير صالحة.' : 'Invalid input data.';
+            return redirect()->back()->with('error', $message)->withInput();
         }
 
         $trip = new Trip();
@@ -65,7 +66,8 @@ class TripController extends Controller
 
         $trip->save();
 
-        return redirect()->route('dashboard.trips.index')->with('success', 'Trip created successfully.');
+        $message = app()->getLocale() === 'ar' ? 'تم إنشاء الرحلة بنجاح.' : 'Trip created successfully.';
+        return redirect()->route('dashboard.trips.index')->with('success', $message);
     }
 
     public function update(Request $request, Trip $trip)
@@ -90,7 +92,8 @@ class TripController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->with('error', 'Invalid input data.')->withInput();
+            $message = app()->getLocale() === 'ar' ? 'بيانات غير صالحة.' : 'Invalid input data.';
+            return redirect()->back()->with('error', $message)->withInput();
         }
 
         $trip->name = $request->input('name');
@@ -113,7 +116,8 @@ class TripController extends Controller
 
         $trip->save();
 
-        return redirect()->route('dashboard.trips.index')->with('success', 'Trip updated successfully.');
+        $message = app()->getLocale() === 'ar' ? 'تم تحديث الرحلة بنجاح.' : 'Trip updated successfully.';
+        return redirect()->route('dashboard.trips.index')->with('success', $message);
     }
 
     public function destroy(Trip $trip)
@@ -128,6 +132,7 @@ class TripController extends Controller
 
         $trip->delete();
 
-        return redirect()->route('dashboard.trips.index')->with('success', 'Trip deleted successfully.');
+        $message = app()->getLocale() === 'ar' ? 'تم حذف الرحلة بنجاح.' : 'Trip deleted successfully.';
+        return redirect()->route('dashboard.trips.index')->with('success', $message);
     }
 }
