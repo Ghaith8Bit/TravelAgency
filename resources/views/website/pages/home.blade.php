@@ -39,7 +39,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <a href="{{ route('website.trips.show', ['trip' => $trip]) }}"
-                                                class="btn btn-outline-success">View Details</a>
+                                                class="btn btn-outline-success">{{ __('home.trip_view_button') }}</a>
                                         </div>
                                         <span class="price">{{ $trip->price }}</span>
                                     </div>
@@ -129,13 +129,13 @@
                                 <div class="d-flex justify-content-center mb-2">
                                     <a href="{{ route('website.packages.show', ['package' => $package]) }}"
                                         class="btn btn-sm btn-primary px-3 border-end"
-                                        style="border-radius: 30px 0 0 30px;">Read More</a>
+                                        style="border-radius: 30px 0 0 30px;">{{ __('home.package_read_button') }}</a>
                                     <form
                                         action="{{ route('website.reservations.store.package', ['package' => $package]) }}"
                                         method="POST" id="bookNowForm">
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-primary px-3"
-                                            style="border-radius: 0 30px 30px 0;">Book Now</button>
+                                            style="border-radius: 0 30px 30px 0;">{{ __('home.package_book_button') }}</button>
                                     </form>
                                 </div>
                             </div>
