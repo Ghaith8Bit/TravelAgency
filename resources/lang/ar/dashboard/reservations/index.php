@@ -9,4 +9,8 @@ return [
     'no_reservations' => 'لا يوجد حجوزات.',
     'trip' => 'رحلة',
     'package' => 'باقة',
+    'name' => 'الاسم',
+    'start_date' => 'تاريخ البدء',
+    'end_date' => 'تاريخ الانتهاء',
+    'price' => 'السعر',
 ];

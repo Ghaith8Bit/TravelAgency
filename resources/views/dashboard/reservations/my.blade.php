@@ -19,12 +19,12 @@
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th>Price</th>
-                            <th>Type</th>
-                            <th>Is Paid</th>
+                            <th>{{ __('dashboard/reservations/index.name') }}</th>
+                            <th>{{ __('dashboard/reservations/index.start_date') }}</th>
+                            <th>{{ __('dashboard/reservations/index.end_date') }}</th>
+                            <th>{{ __('dashboard/reservations/index.price') }}</th>
+                            <th>{{ __('dashboard/reservations/index.type') }}</th>
+                            <th>{{ __('dashboard/reservations/index.is_paid') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,7 +36,7 @@
                                     @elseif ($reservation->reservationable_type === 'App\Models\Package')
                                         {{ $reservation->reservationable->trip->name }}
                                     @else
-                                        Unknown Type
+                                        {{ __('dashboard/reservations/index.unknown_type') }}
                                     @endif
                                 </td>
                                 <td>
@@ -45,7 +45,7 @@
                                     @elseif ($reservation->reservationable_type === 'App\Models\Package')
                                         {{ $reservation->reservationable->trip->start_date->format('Y-m-d') }}
                                     @else
-                                        Unknown Type
+                                        {{ __('dashboard/reservations/index.unknown_type') }}
                                     @endif
                                 </td>
                                 <td>
@@ -54,17 +54,17 @@
                                     @elseif ($reservation->reservationable_type === 'App\Models\Package')
                                         {{ $reservation->reservationable->trip->end_date->format('Y-m-d') }}
                                     @else
-                                        Unknown Type
+                                        {{ __('dashboard/reservations/index.unknown_type') }}
                                     @endif
                                 </td>
                                 <td>{{ $reservation->reservationable->price }}</td>
                                 <td>
                                     @if ($reservation->reservationable_type === 'App\Models\Trip')
-                                        Trip
+                                        {{ __('dashboard/reservations/index.trip') }}
                                     @elseif ($reservation->reservationable_type === 'App\Models\Package')
-                                        Package
+                                        {{ __('dashboard/reservations/index.package') }}
                                     @else
-                                        Unknown Type
+                                        {{ __('dashboard/reservations/index.unknown_type') }}
                                     @endif
                                 </td>
                                 <td class="text-center">
@@ -78,7 +78,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6">No reservations found.</td>
+                                <td colspan="6"> {{ __('dashboard/reservations/index.no_reservations') }}</td>
                             </tr>
                         @endforelse
                     </tbody>

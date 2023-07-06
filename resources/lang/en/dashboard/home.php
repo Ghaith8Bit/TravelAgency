@@ -29,4 +29,6 @@ return [
     'contact_management_slide' => 'Manage contact information and communication channels.',
     'my_reservations_slide' => 'View and manage your own reservations.',
     'my_ratings_slide' => 'Check and update your ratings and reviews.',
+    'my_reservations_button' => 'My Reservations',
+    'my_ratings_button' => 'My Ratings',
 ];

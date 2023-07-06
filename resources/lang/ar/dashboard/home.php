@@ -29,4 +29,6 @@ return [
     'contact_management_slide' => 'إدارة معلومات الاتصال وقنوات الاتصال.',
     'my_reservations_slide' => 'عرض وإدارة الحجوزات الخاصة بك.',
     'my_ratings_slide' => 'التحقق وتحديث التقييمات والمراجعات الخاصة بك.',
+    'my_reservations_button' => 'حجوزاتي',
+    'my_ratings_button' => 'تقييماتي',
 ];
