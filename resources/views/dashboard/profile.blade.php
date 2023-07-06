@@ -20,18 +20,18 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        Change Name
+                        {{ __('dashboard/profile.change_name') }}
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('dashboard.profile.updateName') }}">
                             @csrf
                             @method('PATCH')
                             <div class="form-group">
-                                <label for="inputName">New Name</label>
+                                <label for="inputName">{{ __('dashboard/profile.new_name') }}</label>
                                 <input name="name" type="text" class="form-control" id="inputName"
-                                    placeholder="Enter new name">
+                                    placeholder="{{ __('dashboard/profile.enter_new_name') }}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">{{ __('dashboard/profile.save') }}</button>
                         </form>
                     </div>
                 </div>
@@ -39,28 +39,28 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        Change Password
+                        {{ __('dashboard/profile.change_password') }}
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('dashboard.profile.updatePassword') }}">
                             @csrf
                             @method('PATCH')
                             <div class="form-group">
-                                <label for="inputPassword1">New Password</label>
+                                <label for="inputPassword1">{{ __('dashboard/profile.new_password') }}</label>
                                 <input name="new_password" type="password" class="form-control" id="inputPassword1"
-                                    placeholder="Enter new password">
+                                    placeholder="{{ __('dashboard/profile.enter_new_password') }}">
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword2">Confirm Password</label>
+                                <label for="inputPassword2">{{ __('dashboard/profile.confirm_password') }}</label>
                                 <input name="confirm_password" type="password" class="form-control" id="inputPassword2"
-                                    placeholder="Confirm new password">
+                                    placeholder="{{ __('dashboard/profile.confirm_new_password') }}">
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword3">Old Password</label>
+                                <label for="inputPassword3">{{ __('dashboard/profile.old_password') }}</label>
                                 <input name="old_password" type="password" class="form-control" id="inputPassword3"
-                                    placeholder="Enter old password">
+                                    placeholder="{{ __('dashboard/profile.enter_old_password') }}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">{{ __('dashboard/profile.save') }}</button>
                         </form>
                     </div>
                 </div>
