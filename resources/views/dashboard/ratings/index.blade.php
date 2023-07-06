@@ -19,10 +19,10 @@
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
-                            <th>Rate</th>
-                            <th>Trip</th>
-                            <th>Date</th>
-                            <th>Show on Blog</th>
+                            <th>{{ __('dashboard/ratings/index.rate') }}</th>
+                            <th>{{ __('dashboard/ratings/index.trip') }}</th>
+                            <th>{{ __('dashboard/ratings/index.date') }}</th>
+                            <th>{{ __('dashboard/ratings/index.show_on_blog') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,7 +53,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4">No ratings found.</td>
+                                <td colspan="4">{{ __('dashboard/ratings/index.no_ratings') }}</td>
                             </tr>
                         @endforelse
                     </tbody>
