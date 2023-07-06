@@ -19,9 +19,9 @@
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Message</th>
+                            <th>{{ __('dashboard/contacts/index.name') }}</th>
+                            <th>{{ __('dashboard/contacts/index.email') }}</th>
+                            <th>{{ __('dashboard/contacts/index.message') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +33,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3">No contacts found.</td>
+                                <td colspan="3">{{ __('dashboard/contacts/index.no_contacts') }}</td>
                             </tr>
                         @endforelse
                     </tbody>
