@@ -35,7 +35,7 @@
             <div class="col-md-12">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addRatingModal"
                     @if ($trips->isEmpty()) disabled @endif>
-                    Add Rating
+                    {{ __('dashboard/ratings/index.add_rating') }}
                 </button>
             </div>
         </div>
@@ -44,10 +44,10 @@
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
-                            <th>Rating</th>
-                            <th>Trip Name</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
+                            <th>{{ __('dashboard/ratings/index.rating') }}</th>
+                            <th>{{ __('dashboard/ratings/index.trip_name') }}</th>
+                            <th>{{ __('dashboard/ratings/index.start_date') }}</th>
+                            <th>{{ __('dashboard/ratings/index.end_date') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,7 +64,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4">No ratings found.</td>
+                                <td colspan="4">{{ __('dashboard/ratings/index.no_ratings') }}</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -79,7 +79,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addRatingModalLabel">Add Rating</h5>
+                    <h5 class="modal-title" id="addRatingModalLabel">{{ __('dashboard/ratings/index.add_rating') }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -88,7 +88,7 @@
                     <form action="{{ route('dashboard.ratings.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="trip_id">Trip Name</label>
+                            <label for="trip_id">{{ __('dashboard/ratings/index.trip_name') }}</label>
                             <select class="form-control" id="trip_id" name="trip_id"
                                 @if ($trips->isEmpty()) disabled @endif>
                                 @foreach ($trips as $trip)
@@ -97,7 +97,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="rating">Rating</label>
+                            <label for="rating">{{ __('dashboard/ratings/index.rating') }}</label>
                             <div class="rating">
                                 <input type="radio" id="star5" name="rating" value="5"
                                     @if ($trips->isEmpty()) disabled @endif>
@@ -117,7 +117,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" id="submitBtn"
-                            @if ($trips->isEmpty()) disabled @endif>Submit</button>
+                            @if ($trips->isEmpty()) disabled @endif>{{ __('dashboard/ratings/index.submit') }}</button>
                     </form>
                 </div>
             </div>

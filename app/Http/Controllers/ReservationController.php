@@ -20,7 +20,9 @@ class ReservationController extends Controller
             'is_paid' => $reservation->is_paid ? 0 : 1,
         ]);
 
-        return redirect()->back()->with('success', 'Reservation updated successfully.');
+        $message = app()->getLocale() === 'ar' ? 'تم تحديث الحجز بنجاح.' : 'Reservation updated successfully.';
+        return redirect()->back()->with('success', $message);
+
     }
 
     public function myReservations()

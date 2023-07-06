@@ -39,7 +39,8 @@ class BlogController extends Controller
         // Optionally, you can add a success message or any other additional logic here
 
         // Redirect or return a response as needed
-        return redirect()->back()->with('success', 'Rating submitted successfully.');
+        $message = app()->getLocale() === 'ar' ? 'تم تقديم التقييم بنجاح.' : 'Rating submitted successfully.';
+        return redirect()->back()->with('success', $message);
     }
 
     public function showOnBlog(Rating $rating)
@@ -48,7 +49,9 @@ class BlogController extends Controller
             'show_on_blog' => $rating->show_on_blog ? 0 : 1,
         ]);
 
-        return redirect()->back()->with('success', 'Rating visibility updated successfully.');
+        $message = app()->getLocale() === 'ar' ? 'تم تحديث رؤية التقييم بنجاح.' : 'Rating visibility updated successfully.';
+        return redirect()->back()->with('success', $message);
+
     }
 
     public function myRatings()
