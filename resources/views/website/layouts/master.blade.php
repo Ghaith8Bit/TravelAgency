@@ -6,11 +6,12 @@
     <title>Trips</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+
     @include('website.includes.styles')
 
 </head>
 
-<body>
+<body style="background-image:none">
 
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">

@@ -44,7 +44,7 @@ class TripController extends Controller
         ]);
 
         if ($validator->fails()) {
-            $message = app()->getLocale() === 'ar' ? 'بيانات غير صالحة.' : 'Invalid input data.';
+            $message = $validator->errors();
             return redirect()->back()->with('error', $message)->withInput();
         }
 
@@ -58,11 +58,12 @@ class TripController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = Str::random(10) . '.' . $image->getClientOriginalExtension();
-            $imagePath = $image->storeAs('public', $imageName);
-            $trip->image = asset('storage/' . $imageName);
+            $imagePath = $image->storeAs('public/images', $imageName);
+            $trip->image = asset('storage/images/' . $imageName);
         } else {
             $trip->image = asset('storage/no_pic.jpg');
         }
+
 
         $trip->save();
 
@@ -92,7 +93,7 @@ class TripController extends Controller
         ]);
 
         if ($validator->fails()) {
-            $message = app()->getLocale() === 'ar' ? 'بيانات غير صالحة.' : 'Invalid input data.';
+            $message = $validator->errors();
             return redirect()->back()->with('error', $message)->withInput();
         }
 
@@ -110,9 +111,10 @@ class TripController extends Controller
 
             $image = $request->file('image');
             $imageName = Str::random(10) . '.' . $image->getClientOriginalExtension();
-            $imagePath = $image->storeAs('public', $imageName);
-            $trip->image = asset('storage/' . $imageName);
+            $imagePath = $image->storeAs('public/images', $imageName);
+            $trip->image = asset('storage/images/' . $imageName);
         }
+
 
         $trip->save();
 
@@ -122,13 +124,15 @@ class TripController extends Controller
 
     public function destroy(Trip $trip)
     {
-        // Delete the image if it exists and is not the default image
         if ($trip->image && $trip->image !== asset('storage/no_pic.jpg')) {
             $imagePath = str_replace(asset('storage/'), 'public/', $trip->image);
+            $imagePath = str_replace(asset('/'), '', $imagePath);
+
             if (Storage::exists($imagePath)) {
                 Storage::delete($imagePath);
             }
         }
+
 
         $trip->delete();
 

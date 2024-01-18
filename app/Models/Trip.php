@@ -56,6 +56,14 @@ class Trip extends Model
         return self::where('end_date', '<=', $endDate)->get();
     }
 
+    // Filter trips by date range
+    public static function filterByDateRange($startDate, $endDate)
+    {
+        return self::whereBetween('start_date', [$startDate, $endDate])
+            ->orWhereBetween('end_date', [$startDate, $endDate])
+            ->get();
+    }
+
     // Filter trips by name
     public static function filterByName($name)
     {

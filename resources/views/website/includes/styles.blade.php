@@ -1,6 +1,9 @@
 <!-- Favicon -->
 {{-- <link href="{{ asset('dist/img/favicon.ico') }}" rel="icon"> --}}
 
+<!-- Botman -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css" type="text/css">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
@@ -23,3 +26,5 @@
 
 <!-- Toastify Stylesheet -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+

@@ -85,7 +85,8 @@
             aria-labelledby="editModal{{ $trip->id }}Label" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <form action="{{ route('dashboard.trips.update', $trip) }}" method="POST">
+                    <form action="{{ route('dashboard.trips.update', $trip) }}" method="POST"
+                        enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="modal-header">

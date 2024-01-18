@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BotManController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PackageController;
@@ -33,6 +34,12 @@ Route::prefix('auth')->name('auth.')->group(function () {
         Route::get('/authentication', [AuthController::class, 'authentication'])->name('authentication');
         Route::post('/signin', [AuthController::class, 'signin'])->name('signin');
         Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
+
+        Route::get('/forgot-password', [AuthController::class, 'showEmailForm'])->name('email.form');
+        Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('email.send');
+        Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('password.update');
+        Route::get('/reset-password/{token}', [AuthController::class, 'showResetForm'])->name('reset.form');
+
     });
     Route::middleware('auth')->group(function () {
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -120,4 +127,9 @@ Route::group([
             Route::get('/trips_without_ratings', [BlogController::class, 'getRateableTrips'])->name('without-ratings');
         });
     });
+});
+
+
+Route::match(['get', 'post'], 'botman', function () {
+    include __DIR__ . '/botman.php';
 });
