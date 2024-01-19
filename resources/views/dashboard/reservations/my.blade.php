@@ -69,10 +69,16 @@
                                 </td>
                                 <td class="text-center">
                                     <div class="form-check form-switch d-flex justify-content-center pl-0">
-                                        <input class="form-check-input" type="checkbox" name="is_paid" value="1"
-                                            {{ $reservation->is_paid ? 'checked' : '' }} disabled>
-                                        <label class="form-check-label" for="isPaidSwitch{{ $reservation->id }}"
-                                            style="cursor: default"></label>
+                                        <input class="form-check-input" type="checkbox"
+                                            id="publishSwitch{{ $reservation->id }}" name="is_paid" value="1"
+                                            onchange="event.preventDefault(); document.getElementById('publishForm{{ $reservation->id }}').submit();"
+                                            @disabled($reservation->is_paid) @checked($reservation->is_paid)>
+                                        <label class="form-check-label" for="publishSwitch{{ $reservation->id }}"></label>
+                                        <form action="{{ route('payment.checkout', $reservation) }}" method="POST"
+                                            id="publishForm{{ $reservation->id }}" style="display:none;">
+                                            @csrf
+                                            @method('POST')
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

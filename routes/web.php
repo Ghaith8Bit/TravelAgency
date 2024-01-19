@@ -6,6 +6,7 @@ use App\Http\Controllers\BotManController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\TripController;
@@ -128,6 +129,10 @@ Route::group([
         });
     });
 });
+
+Route::post('payment/checkout/{reservation}', [PaymentController::class, 'checkout'])->name('payment.checkout');
+Route::get('payment/success/{reservation}/{signature}', [PaymentController::class, 'success'])->name('payment.success');
+Route::get('payment/fail', [PaymentController::class, 'fail'])->name('payment.fail');
 
 
 Route::match(['get', 'post'], 'botman', function () {
